@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Section from '../components/Section.astro';
+import Contact from '../components/Contact.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+
+import GithubIcon from '../components/icons/GithubIcon.astro';
+import DonwnloadIcon from '../components/icons/DonwnloadIcon.astro';
+import GitlabIcon from '../components/icons/GitlabIcon.astro';
+import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
+import RightArrowIcon from '../components/icons/RightArrowIcon.astro';
+---
+
+<Layout title="Home">
+	<main>
+		<Section
+			id="Home"
+			class="container flex flex-col md:flex-row items-center"
+		>
+			<div class="order-last md:order-first flex-initial md:mr-40">
+				<div class="flex flex-row md:flex-col items-center text-center">
+					<a href="https://gitlab.com/juliandpt" target="_blank" rel="noopener noreferrer" type="button" class="marker:inline-flex items-center p-2 mb-1 text-sm transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-600">
+						<GitlabIcon/>
+					</a>
+
+					<a href="https://www.linkedin.com/in/juliandepablo" target="_blank" rel="noopener noreferrer" type="button" class="inline-flex items-center p-2 mb-1 text-sm transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-600">
+						<LinkedinIcon/>
+					</a>
+
+					<a href="https://github.com/juliandpt" target="_blank" rel="noopener noreferrer" type="button" class="inline-flex items-center p-2 mb-1 text-sm transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-600">
+						<GithubIcon/>
+					</a>
+	
+					<p class=" dark:text-white md:[writing-mode:tb-rl] md:[transform:rotate(-180deg)] mr-10 md:mr-0 md:mt-10">SOCIAL MEDIA</p> 
+	
+					<div class="border border-black dark:border-white h-0 md:h-20 w-20 md:w-0 mr-4 md:mr-0 md:mt-4"/>
+				</div>
+			</div>
+	
+			<div class="flex-1 text-center md:text-left">
+				<p class="typed dark:text-white mb-4"></p>
+	
+				<h1 class=" dark:text-white text-7xl font-bold mb-16">Julián <br> de Pablo.</h1>
+	
+				<div class="flex mt-4">
+					<a class="font-bold text-center inline-flex items-center px-5 py-2.5 mr-8 border-2 border-black dark:border-white overflow-hidden text-sm text-black group dark:text-white transition-all duration-300 hover:[box-shadow:-7px_7px_0_0_black] hover:-translate-y-2 hover:translate-x-2 dark:hover:[box-shadow:-7px_7px_0_0_white]" href="/#contact">
+							Contact me
+	
+							<RightArrowIcon/>
+					</a>
+	
+					<a href="/Julian-CV.pdf" download class="text-white dark:text-black bg-black dark:bg-white font-bold text-center inline-flex items-center px-5 py-2.5 mr-2 transition-all duration-300 hover:[box-shadow:-7px_7px_0_0_black] hover:-translate-y-2 hover:translate-x-2 dark:hover:[box-shadow:-7px_7px_0_0_white]">
+						Download CV
+	
+						<DonwnloadIcon/>
+					</a>
+				</div>
+			</div>
+	
+			<div class="order-first md:order-last flex-1 text-center border-2 border-black h-80">
+				foto de perfil 
+			</div>
+		</Section>
+
+		<Section
+			id="experience"
+		>
+			<Experience />
+		</Section>
+
+		<Section
+			id="projects"
+		>
+
+		</Section>
+
+		<Section
+			id="contact"
+		>
+
+		</Section>
+	</main>
+</Layout>

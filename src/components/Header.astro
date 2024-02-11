@@ -1,0 +1,117 @@
+<nav class="bg-transparent backdrop-blur-xl sticky w-full z-20 top-0 p-4">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a href="/" class="">
+      <p class="text-black dark:text-white ">Julián <br> de Pablo.</p>
+    </a>
+    
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-cta">
+      <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-16 md:mt-0 md:text-sm md:font-medium md:border-0 dark:border-gray-700">
+        
+        <li>
+          <a href="/#about" class="block py-2 pl-3 pr-4 text-gray-500 dark:text-gray-400 rounded hover:text-gray-900 dark:hover:text-gray-300 md:p-0 duration-200"> / About </a>
+        </li>
+        
+        <li>
+          <a href="/#experience" class="block py-2 pl-3 pr-4  text-gray-500 dark:text-gray-400 rounded hover:text-gray-800 dark:hover:text-gray-300 md:p-0 duration-200"> / Experience </a>
+        </li>
+
+        <li>
+          <a href="/#projects" class="block py-2 pl-3 pr-4 text-gray-500 dark:text-gray-400 rounded hover:text-gray-900 dark:hover:text-gray-300 md:p-0 duration-200"> / Pojects </a>
+        </li>
+        
+        <li>
+          <a href="/#contact" class="block py-2 pl-3 pr-4 text-gray-500 dark:text-gray-400 rounded hover:text-gray-900 dark:hover:text-gray-300 md:p-0 duration-200"> / Contact </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex">
+      <button id="theme-toggle" title="boton" type="button" class="inline-flex items-center p-2">
+        <!-- moon -->
+        <svg id="theme-toggle-light-icon" class="fill-gray-500 hover:fill-black duration-200 w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z" />
+        </svg>
+
+        <!-- sun -->
+        <svg id="theme-toggle-dark-icon" class="fill-gray-400 hover:fill-white duration-200 w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.64 17l-.71.71a1 1 0 000 1.41 1 1 0 001.41 0l.71-.71A1 1 0 005.64 17zM5 12a1 1 0 00-1-1H3a1 1 0 000 2h1a1 1 0 001-1zm7-7a1 1 0 001-1V3a1 1 0 00-2 0v1a1 1 0 001 1zM5.64 7.05a1 1 0 00.7.29 1 1 0 00.71-.29 1 1 0 000-1.41l-.71-.71a1 1 0 00-1.41 1.41zm12 .29a1 1 0 00.7-.29l.71-.71a1 1 0 10-1.41-1.41l-.64.71a1 1 0 000 1.41 1 1 0 00.66.29zM21 11h-1a1 1 0 000 2h1a1 1 0 000-2zm-9 8a1 1 0 00-1 1v1a1 1 0 002 0v-1a1 1 0 00-1-1zm6.36-2A1 1 0 0017 18.36l.71.71a1 1 0 001.41 0 1 1 0 000-1.41zM12 6.5a5.5 5.5 0 105.5 5.5A5.51 5.51 0 0012 6.5zm0 9a3.5 3.5 0 113.5-3.5 3.5 3.5 0 01-3.5 3.5z" />
+        </svg>
+      </button>
+      
+      <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+.isActiveDark {
+  color: #FFF !important;
+}
+
+.isActive {
+  color: #000!important;
+}
+</style>
+
+<script is:inline>
+// Manage of active link
+
+const navLinks = document.querySelectorAll("ul a");
+
+navLinks.forEach(link => {
+  link.classList.remove("isActive");
+
+  const currentPath = window.location.pathname.slice("1");
+  const hrefArray = link.href.split("/");
+  const thisPath = hrefArray[hrefArray.length - 1];
+
+  if (currentPath === thisPath) link.classList.add("isActive")
+});
+
+// Manage of apllication theme
+
+const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon')
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon')
+const activePath = document.querySelector('.isActive');
+
+const theme = localStorage.getItem("theme");
+
+themeToggleDarkIcon.classList.add('hidden')
+themeToggleLightIcon.classList.add('hidden')
+
+if (theme) {
+  if (theme === "dark") {
+    document.documentElement.classList.add('dark')
+    themeToggleDarkIcon.classList.toggle('hidden')
+    activePath.classList.replace('isActive', 'isActiveDark')
+  } 
+  else { 
+    document.documentElement.classList.remove('dark') 
+    themeToggleLightIcon.classList.toggle('hidden')
+  }
+} 
+else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  document.documentElement.classList.add('dark')
+  localStorage.setItem("theme", "dark");
+  themeToggleDarkIcon.classList.toggle('hidden')
+}
+
+document.getElementById('theme-toggle').addEventListener("click", () => {
+  document.documentElement.classList.toggle('dark')
+  
+  if (localStorage.theme === 'dark') {
+    localStorage.theme = 'light'
+    activePath.classList.replace('isActiveDark', 'isActive')
+  } 
+  else {
+    localStorage.theme = 'dark'
+    activePath.classList.replace('isActive', 'isActiveDark')
+  }
+
+  themeToggleDarkIcon.classList.toggle('hidden')
+  themeToggleLightIcon.classList.toggle('hidden')
+})
+</script> 
