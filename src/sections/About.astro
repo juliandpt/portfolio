@@ -1,169 +1,162 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Title from "./Title.astro"
-import { jobs } from "../services/data"
+import '@fontsource/libre-barcode-128-text';
+
+import Title from "../components/Title.astro"
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import GitlabIcon from "../components/icons/GitlabIcon.astro";
+import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
+
+const SOCIALS = [
+  {
+    icon: GithubIcon,
+    link: 'https://github.com/juliandpt',
+    label: "linkedin"
+  },
+  {
+    icon: GitlabIcon,
+    link: 'https://gitlab.com/juliandpt',
+    label: "dribbble"
+  },
+  {
+    icon: LinkedinIcon,
+    link: 'https://www.linkedin.com/in/juliandepablo',
+    label: "github"
+  }
+]
 ---
 
 
-  <div class="container grid mx-auto justify-items-center">
-    <Title title="About me" subtitle="My card presentation" />
 
-    <div class="atropos p-8 w-full md:w-[800px] md:aspect-[1.91:1]">
-      <div class="atropos-scale">
-        <div class="atropos-rotate">
-          <div class="atropos-inner transition-all duration-700 relative p-2 border-2 border-black dark:border-white backdrop-blur-sm">
-            <div class="atropos-inner transition-all duration-700 relative p-4 border-4 border-black dark:border-white backdrop-blur-sm">
-							<div class='flex items-center space-x-4'>
-								<img class='w-14 h-14' src="/images/about.png" alt='' data-atropos-offset='4' />
-								
-								<div class=''>
-									<div class='text-2xl font-bold dark:text-white'> Julián de Pablo </div>
-									<div class='font-bold text-gray-500'> juliandpt98@gmail.com </div>
-								</div>
-							</div>
+<Title title="About me" />
 
-							<div class="w-full flex justify-center align-center my-10">
-								<div class="flex flex-col text-center mx-6">
-									<h1 class='font-black text-7xl dark:text-white' data-atropos-offset='5'> 3 </h1>
-		
-									<h2 class='font-black text-gray-500' data-atropos-offset='2'> Projects </h2>
-								</div>
+<div class="atropos w-full md:w-[700px] flex items-center justify-center">
+	<div class="atropos-scale">
+		<div class="atropos-rotate">
+			<div class="atropos-inner rounded-2xl transition-all backdrop-blur duration-700 relative border-2 border-black dark:border-white aspect-[0.7/1] md:aspect-[1/0.5]">
+				<div class="atropos-inner transition-all duration-700 relative p-8 h-full grid grid-cols-[30%_1fr_5%] grid-rows-4 gap-8">
+					<div class="relative row-start-1 row-span-3 rounded-lg outline-dashed outline-offset-[-4px]">
+						<img class='object-cover w-max h-full rounded-lg z-10' src="/images/about.png" alt='' data-atropos-offset='5' />
+					</div>
 
-								<div class="flex flex-col text-center mx-6">
-									<h1 class='font-black text-7xl dark:text-white' data-atropos-offset='5'> 1+ </h1>
-		
-									<h2 class='font-black text-gray-500' data-atropos-offset='2'> Years experience </h2>
-								</div>
+					<div class="row-start-4 flex items center justify-center">
+						<p class="id text-5xl" >620696968</p>
+					</div>
+					
+					<div> 
+						<span class='font-bold text-xs text-gray-500'>Name:</span>
+						<p class='text-xl'>Julián</p> 
+					</div>
 
-								<div class="flex flex-col text-center mx-6">
-									<h1 class='font-black text-7xl dark:text-white' data-atropos-offset='5'> 3 </h1>
-		
-									<h2 class='font-black text-gray-500' data-atropos-offset='2'> Clients </h2>
-								</div>
-							</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+					<div> 
+						<span class='font-bold text-xs text-gray-500'>Surnames:</span>
+						<p class='text-xl'>de Pablo Torremocha</p> 
+					</div>
 
-    <Title title="Experience" subtitle="My profesional path" />
+					<div>
+						<span class='font-bold text-xs text-gray-500'>Pronouns:</span>
+						<p class='text-xl'>He / Him</p> 
+					</div>
 
-		<div id='experiences' class='relative flex flex-col mt-8 w-full items-center'>
-			{jobs.map(job => (
-				<div class='relative p-5 mb-5 overflow-hidden text-black dark:text-white bg-gray-50 dark:bg-[#1F1F1F] w-full max-w-3xl'>
-					<button class='flex items-center justify-between w-full transition-colors cursor-pointer'>
-						<div class="flex">
-							<img src={ job.logo } alt={ job.company } class="w-16 h-auto" />
-						
-							<div class="pl-4">
-								<h4 class='font-extrabold text-2xl text-left'> { job.company } </h4>
-		
-								<h5 class='text-sm text-left'> { job.startDate } - { job.endDate } </h5>
-							</div>
-						</div>
-						
-						<svg class='flex-shrink-0 w-4 h-4 transition-all duration-200 ease-out transform rotate-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-							<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' />
-						</svg>
-					</button>
-
-					<ol class="relative border-l border-gray-200 dark:border-gray-700 mt-5 hidden">
-						{job.positions.map(position => (             
-							<li class="mb-10 last:mb-0 ml-4">
-								<div class="absolute w-3 h-3 bg-gray-200 mt-2 -left-1.5 border-[3px] border-gray-50 dark:border-[#1F1F1F] dark:bg-gray-700" />
-								<h3 class="text-lg font-semibold text-gray-900 dark:text-white"> { position.title } </h3>
-								<time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"> { position.startDate } - { position.endDate } </time>
-							</li>
+					<div class="col-start-3 row-start-1 row-span-4 flex flex-col items-center justify-center gap-6" data-atropos-offset='3'>
+						{SOCIALS.map(social => (
+							<a class='relative transition duration-200 hover:scale-150 hover:rotate-1 ' href={social.link} aria-label={social.label} target="_blank" rel="noopener">
+								<social.icon class="w-6 h-6" />
+							</a>
 						))}
-					</ol>
+					</div>
 				</div>
-			))}
+			</div>
 		</div>
-		
 	</div>
+</div>
+
+<p class="text-gray-600 dark:text-gray-400 mt-20">Descripción breve</p>
 
 
 <style>
-	.atropos {
-		position: relative;
-		display: block;
-		perspective: 1200px;
-		transform: translate3d(0, 0, 0)
-	}
-	.atropos-rotate-scroll-x,
-	.atropos-rotate-scroll-y,
-	.atropos-rotate-touch {
-		-webkit-tap-highlight-color: transparent;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none
-	}
-	.atropos-rotate-touch-scroll-y {
-		touch-action: pan-y
-	}
-	.atropos-rotate-touch-scroll-x {
-		touch-action: pan-x
-	}
-	.atropos-rotate-touch {
-		touch-action: none
-	}
-	.atropos-rotate,
-	.atropos-scale {
-		width: 100%;
-		height: 100%;
-		transform-style: preserve-3d;
-		transition-property: transform;
-		display: block
-	}
-	.atropos-highlight,
-	.atropos-shadow {
-		position: absolute;
-		pointer-events: none;
-		transition-property: transform, opacity;
-		display: block;
-		opacity: 0
-	}
-	.atropos-shadow {
-		z-index: -1;
-		background: #000;
-		left: 0;
-		top: 0;
-		filter: blur(30px)
-	}
-	.atropos-highlight {
-		left: -50%;
-		top: -50%;
-		background-image: radial-gradient(circle at 50%, rgba(255, 255, 255, .25), transparent 50%);
-		z-index: 0
-	}
-	.atropos-rotate {
-		position: relative
-	}
-	.atropos-inner {
-		position: relative;
-		overflow: hidden;
-		transform-style: preserve-3d;
-		transform: translate3d(0, 0, 0);
-		/* display: block */
-	}
-	.atropos-active {
-		z-index: 1
-	}
-	.atropos-active .atropos-shadow {
-		opacity: 1 !important
-	}
-	[data-atropos-offset] {
-		transition-property: transform
-	}
-	[data-atropos-opacity] {
-		transition-property: opacity
-	}
-	[data-atropos-offset][data-atropos-opacity] {
-		transition-property: transform, opacity
-	}
+.id {
+	font-family: 'Libre Barcode 128 Text', system-ui;
+}
+
+.atropos {
+	position: relative;
+	display: block;
+	perspective: 1200px;
+	transform: translate3d(0, 0, 0)
+}
+.atropos-rotate-scroll-x,
+.atropos-rotate-scroll-y,
+.atropos-rotate-touch {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+.atropos-rotate-touch-scroll-y {
+	touch-action: pan-y
+}
+.atropos-rotate-touch-scroll-x {
+	touch-action: pan-x
+}
+.atropos-rotate-touch {
+	touch-action: none
+}
+.atropos-rotate,
+.atropos-scale {
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition-property: transform;
+	display: block
+}
+.atropos-highlight,
+.atropos-shadow {
+	position: absolute;
+	pointer-events: none;
+	transition-property: transform, opacity;
+	display: block;
+	opacity: 0
+}
+.atropos-shadow {
+	z-index: -1;
+	background: #000;
+	left: 0;
+	top: 0;
+	filter: blur(30px)
+}
+.atropos-highlight {
+	left: -50%;
+	top: -50%;
+	background-image: radial-gradient(circle at 50%, rgba(255, 255, 255, .25), transparent 50%);
+	z-index: 0
+}
+.atropos-rotate {
+	position: relative
+}
+.atropos-inner {
+	position: relative;
+	overflow: hidden;
+	transform-style: preserve-3d;
+	transform: translate3d(0, 0, 0);
+	/* display: block */
+}
+.atropos-active {
+	z-index: 1
+}
+.atropos-active .atropos-shadow {
+	opacity: 1 !important
+}
+[data-atropos-offset] {
+	transition-property: transform
+}
+[data-atropos-opacity] {
+	transition-property: opacity
+}
+[data-atropos-offset][data-atropos-opacity] {
+	transition-property: transform, opacity
+}
 </style>
 
 <script type='module'>
@@ -177,20 +170,4 @@ import { jobs } from "../services/data"
     activeOffset: 120,
     shadowScale: 5
   })
-</script>
-
-<script>
-document.getElementById('experiences')?.querySelectorAll('button').forEach((button) => {
-	button.addEventListener('click', (event) => {
-		const { currentTarget } = event
-
-		const svg = currentTarget.querySelector('svg')
-		const isClosed = svg.classList.contains('rotate-0')
-
-		currentTarget.nextElementSibling.classList.toggle('hidden', !isClosed)
-
-		const [from, to] = isClosed ? ['rotate-0', 'rotate-180'] : ['rotate-180', 'rotate-0']
-		svg.classList.replace(from, to)
-	})
-})
 </script>

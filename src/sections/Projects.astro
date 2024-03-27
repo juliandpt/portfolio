@@ -1,0 +1,157 @@
+---
+import Title from "../components/Title.astro"
+import UpDownArrow from "../components/icons/UpDownArrow.astro"
+
+const PROJECTS = [
+  {
+    title: "Infopueblo",
+    description: "Search webapp of Spanish municipalities. It offers leisure data from the different municipalities, compiling the information through web scrapping.",
+    projectLink: "",
+    codeLink: "https://github.com/juliandpt/Infopueblo",
+    chips: [
+      {
+        name: "Angular.js",
+        icon: "/images/angular.png",
+        color: "primary"
+      },
+      {
+        name: "Bootstrap",
+        icon: "/images/bootstrap.png",
+        color: "primary"
+      },
+      {
+        name: "Node.js",
+        icon: "/images/nodejs.png",
+        color: "primary"
+      },
+      {
+        name: "PostgreSQL",
+        icon: "/images/postgresql.png",
+        color: "primary"
+      },
+      {
+        name: "Python",
+        icon: "/images/python.png",
+        color: "primary"
+      }
+    ],
+    demo: "/videos/infopueblo.mp4"
+  },
+  {
+    title: "Webstats",
+    description: "Web service responsible for analyzing the security implemented in the different endpoints of any web domain.",
+    codeLink: "https://github.com/juliandpt/Webstats",
+    chips: [
+      {
+        name: "Nuxt.js",
+        icon: "/images/nuxt.png",
+        color: "primary"
+      },
+      {
+        name: "Vuetify",
+        icon: "/images/vuetify.png",
+        color: "primary"
+      },
+      {
+        name: "Node.js",
+        icon: "/images/nodejs.png",
+        color: "primary"
+      },
+      {
+        name: "MongoDB",
+        icon: "/images/mongodb.png",
+        color: "primary"
+      }
+    ],
+    demo: "/videos/webstats.mp4"
+  },
+  {
+    title: "Weather?",
+    description: "Web service capable of showing different climatic data of a locality. Created to learn the basics of communication with APIs.",
+    codeLink: "https://github.com/juliandpt/WeatherApp",
+    chips: [
+      {
+        name: "Sveltekit",
+        icon: "/images/svelte.png",
+        color: "primary"
+      },
+      {
+        name: "Bootstrap",
+        icon: "/images/bootstrap.png",
+        color: "primary"
+      }
+    ],
+    demo: "/videos/weather.mp4"
+  },
+]
+---
+
+<Title title="Projects" />
+
+<div class="mx-auto flex w-full max-w-screen-2xl flex-col gap-4 px-4 md:flex-row md:items-center md:px-0">
+  <div id="projects" class="class=mb-4 grid gap-4 md:mx-auto w-full">
+    {PROJECTS.map(project => (
+        <button class="p-5 rounded-lg w-full transition-colors duration-500 hover:bg-neutral-900 cursor-pointer">
+          <div class="flex justify-between items-center">
+            <h4 class="font-extrabold text-2xl text-left"> { project.title } </h4>
+            
+            <UpDownArrow class="flex-shrink-0 w-4 h-4 transition-all duration-200 ease-out transform rotate-0" />
+          </div>
+
+          <ol class="relative mt-5 text-left transition-all duration-500 hidden">
+            { project.description }
+          </ol>
+        </button>
+    ))}
+  </div>
+
+  <div class="relative flex flex-col gap-4">
+    <div class="" />
+    {PROJECTS.map(project => (
+      <div class="bg-neutral-900 rounded-lg">
+        <p class="text-center p-1"> { project.title } </p>
+
+        <video class="w-full cursor-pointer" controls muted>
+          <source src={ project.demo } type="video/mp4" />
+        </video>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+
+const $projects = document.getElementById("projects")
+
+$projects.querySelectorAll("button").forEach(button => {
+  button.addEventListener("click", (event) => {
+    if (button.classList.contains("active")) return
+
+    button.classList.add("bg-neutral-900", "active")
+
+    const { currentTarget } = event
+
+    const $svg = currentTarget.querySelector("svg")
+    const $ol = currentTarget.querySelector("ol")
+    const isClosed = $svg.classList.contains("rotate-0")
+
+    $ol.classList.toggle("hidden", !isClosed)
+
+    const [from, to] = isClosed ? ["rotate-0", "rotate-180"] : ["rotate-180", "rotate-0"]
+    $svg.classList.replace(from, to)
+
+    // rotate the rest of the svgs
+    $projects.querySelectorAll("button").forEach(button => {
+      if (button !== currentTarget) {
+        button.classList.remove("bg-neutral-900", "active")
+        button.querySelector("svg").classList.replace("rotate-180", "rotate-0")
+      }
+    })
+
+    // close the rest of the divs 
+    $projects.querySelectorAll("ol").forEach(ol => { if (ol !== $ol) ol.classList.add("hidden") })
+  })
+})
+
+
+</script>

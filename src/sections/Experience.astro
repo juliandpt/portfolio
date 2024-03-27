@@ -1,0 +1,81 @@
+---
+import Title from "../components/Title.astro"
+import UpDownArrow from '../components/icons/UpDownArrow.astro'
+
+const JOBS = [
+  {
+    company: "SAS",
+    logo: "/images/sas_logo.jpg",
+    startDate: "October 2021",
+    endDate: "Present",
+    positions: [
+      {
+        title: "Associate Technical Consultant",
+        startDate: "April 2023",
+        endDate: "Present",
+        description: "Lorem Ipsum"
+      },
+      {
+        title: "Contractor",
+        startDate: "September 2022",
+        endDate: "April 2023",
+        description: "Lorem Ipsum"
+      },
+      {
+        title: "Technical Intern",
+        startDate: "October 2021",
+        endDate: "September 2022",
+        description: "Lorem Ipsum"
+      },
+    ]
+  }
+]
+---
+
+<Title title="Experience" />
+
+<div id="experiences" class='flex flex-col mt-8 w-full items-center'>
+  {JOBS.map(job => (
+      <div class="relative w-full py-10 border-b border-gray-700 last:border-b-0">
+        <div class="flex">
+          <img src={ job.logo } alt={ job.company } class="w-12 h-12 rounded" />
+        
+          <div class="pl-4">
+            <h4 class='font-extrabold text-2xl text-left'> { job.company } </h4>
+
+            <time class='text-sm text-left'> { job.startDate } - { job.endDate } </time>
+          </div>
+        </div>
+
+        <ol class="relative mt-5">
+          {job.positions?.map(position => (
+            <li class="first:mt-6">
+              <div class="relative flex items-center">
+                <span class="rounded w-2 h-2 mx-5 bg-gray-700" />
+
+                <h3 class="pl-4 text-lg font-semibold text-gray-900 dark:text-white"> { position.title } </h3>
+              </div>
+
+              <div class="flex guide">
+                <span class="rouned-full w-[2px] h-auto mx-[23px] bg-gray-700" />
+
+                <div class="mb-10 pl-4">
+                  <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"> { position.startDate } - { position.endDate } </time>
+
+                  <p>location</p>
+
+                  <p>description</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+  ))}
+</div>
+
+<style>
+li:last-child > .guide > span {
+  @apply w-0;
+}
+</style>

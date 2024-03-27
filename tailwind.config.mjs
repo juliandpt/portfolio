@@ -8,11 +8,6 @@ module.exports = {
 		'./node_modules/flowbite/**/*.js'
 	],
 	darkMode: 'class',
-	theme: {
-    fontFamily: {
-      mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono]
-    }
-  },
 	plugins: [
     require('flowbite/plugin')
   ]
