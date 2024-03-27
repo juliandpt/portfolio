@@ -91,7 +91,7 @@ const PROJECTS = [
 <div class="mx-auto flex w-full max-w-screen-2xl flex-col gap-4 px-4 md:flex-row md:items-center md:px-0">
   <div id="projects" class="class=mb-4 grid gap-4 md:mx-auto w-full">
     {PROJECTS.map(project => (
-        <button class="p-5 rounded-lg w-full transition-colors duration-500 hover:bg-neutral-900 cursor-pointer">
+        <button class="p-5 rounded-lg w-full transition-colors duration-500 hover:bg-neutral-900 cursor-pointer first:active">
           <div class="flex justify-between items-center">
             <h4 class="font-extrabold text-2xl text-left"> { project.title } </h4>
             
@@ -106,22 +106,21 @@ const PROJECTS = [
   </div>
 
   <div class="relative flex flex-col gap-4">
-    <div class="" />
     {PROJECTS.map(project => (
       <div class="bg-neutral-900 rounded-lg">
-        <p class="text-center p-1"> { project.title } </p>
+        <p class="text-center p-2"> { project.title } </p>
 
-        <video class="w-full cursor-pointer" controls muted>
+        <video class="w-full cursor-pointer rounded-lg px-2 pb-2" controls muted>
           <source src={ project.demo } type="video/mp4" />
         </video>
       </div>
     ))}
-  </div>
 </div>
 
 <script is:inline>
 
 const $projects = document.getElementById("projects")
+
 
 $projects.querySelectorAll("button").forEach(button => {
   button.addEventListener("click", (event) => {
