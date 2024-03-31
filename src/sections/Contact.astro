@@ -29,49 +29,30 @@ const CONTACTS = [
 
 <Title title="Contact" />
 
-<div class="flex flex-col md:flex-row items-center">
-  <div id="contacts" class="class=mb-4 grid gap-4 md:mx-auto w-full">
-    {CONTACTS.map(contact => (
-      <div class="relative p-3 rounded-lg contact">
-        <button class='flex items-center justify-between w-auto transition-colors cursor-pointer'>
-          <span class='text-gray-500 text-left'> { contact.text } </h>
-  
-          <CopyIcon class="text-gray-500 w-4 h-4 invisible" />
-        </button>
-      </div>
-    ))}
+<div class="w-full">
+    <form action="#" class="space-y-8">
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+            <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+        </div>
+
+        <div class="sm:col-span-2">
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+            <textarea id="message" rows="6" class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+        </div>
+        <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+    </form>
+
+    <div id="contacts" class="flex flex-col justify-center gap-4">
+        {CONTACTS.map(contact => (
+            <button class='flex text-gray-500 justify-between p-4 transition-colors cursor-pointer text-center group'>
+                <span> { contact.text } </span>
+        
+                <CopyIcon class="w-4 h-4 invisible group-hover:visible" />
+            </button>
+        ))}
   </div>
 
-  <div class="flex-auto flex flex-col items-center mx-14">
-    <div class="border border-gray-400 w-0 h-4" />
-    
-    <h1 class="text-gray-400 text-xs mt-2 mb-3"> or </h1>
-    
-    <div class="border border-gray-400 w-0 h-4" />
-  </div>
-
-  <div class="flex-auto grid grid-cols-2 gap-4">
-    <div class="relative z-0 mt-4">
-      <input type="text" id="name" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black dark:border-white appearance-none dark:text-white focus:outline-none focus:ring-0 peer" placeholder=" " />
-      <label for="Name" class=" absolute text-sm dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
-    </div>
-  
-    <div class="relative z-0 mt-4">
-      <input type="text" id="email" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none dark:text-white dark:border-white focus:outline-none focus:ring-0 peer" placeholder=" " />
-      <label for="Email" class=" absolute text-sm dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
-    </div>
-
-    <div class="relative col-span-2 z-0 mt-4 w-full">
-      <textarea rows="7" id="message" class="block resize-none py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none dark:text-white dark:border-white focus:outline-none focus:ring-0 peer" placeholder=" " />
-      <label for="Message" class=" absolute text-sm dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
-    </div>
-
-    <button id="sendButton" class="relative col-span-2 inline-flex items-center justify-center p-0.5 mt-4 mr-2 border-2 border-black dark:border-white overflow-hidden text-sm font-medium text-gray-900 group dark:text-white">
-      <span class="relative px-5 py-2.5 dark:text-white transition-all rounded-md group-hover:bg-opacity-0">
-        Send Message
-      </span>
-    </button>
-  </div>
 
   <div id="toast-success" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-[#1F1F1F] shadow fixed right-5 bottom-5 hidden" role="alert" >
     <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200">
@@ -113,31 +94,13 @@ const CONTACTS = [
 </div>
 
 <style>
-#contacts:hover > .contact::after {
-  @apply opacity-100;
+
+
+#contacts > button:hover > svg {
+  @apply visible;
 }
-.contact:hover::before {
-  @apply opacity-100;
-}
-.contact::before,
-.contact::after {
-  @apply content-[""] h-full opacity-0 absolute transition-opacity duration-500 w-full rounded-[inherit] left-0 top-0;
-}
-.contact::before {
-  @apply z-[3];
-  background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.06),
-    transparent 40%
-  );
-}
-.contact::after {
-  @apply z-[1];
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.06),
-    transparent 40%
-  );
+textarea {
+  field-sizing: content;
 }
 </style>
 
@@ -174,21 +137,37 @@ document.getElementById('sendButton')?.addEventListener("click", () => {
       }
     )
 })
-</script>
 
-<script is:inline>
+document.getElementById('contacts')?.addEventListener("click", (event) => {
+  const target = event.target as HTMLElement
 
-const $contacts = document.getElementById('contacts')
+  if (target.tagName === 'BUTTON') {
+    const text = target.querySelector('h').textContent
 
-$contacts.onmousemove = e => {
-  for (const contact of document.getElementsByClassName("contact")) {
-    const rect = contact.getBoundingClientRect(),
-          x = e.clientX - rect.left,
-          y = e.clientY - rect.top;
+    if (text) {
+      navigator.clipboard.writeText(text)
+      target.querySelector('svg')?.classList.toggle('text-green-500')
 
-    contact.style.setProperty("--mouse-x", `${x}px`);
-    contact.style.setProperty("--mouse-y", `${y}px`);
-  };
-}
+      setTimeout(() => {
+        target.querySelector('svg')?.classList.toggle('text-green-500')
+      }, 3000)
+    }
+  }
+})
 
+document.getElementById('toast-success')?.addEventListener("click", (event) => {
+  const target = event.target as HTMLElement
+
+  if (target.tagName === 'BUTTON') {
+    document.getElementById('toast-success')?.classList.toggle('hidden')
+  }
+})
+
+document.getElementById('toast-danger')?.addEventListener("click", (event) => {
+  const target = event.target as HTMLElement
+
+  if (target.tagName === 'BUTTON') {
+    document.getElementById('toast-danger')?.classList.toggle('hidden')
+  }
+})
 </script>
