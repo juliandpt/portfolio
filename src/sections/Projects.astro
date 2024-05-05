@@ -88,34 +88,41 @@ const PROJECTS = [
 
 <Title title="Projects" />
 
-<div class="mx-auto flex w-full max-w-screen-2xl flex-col gap-4 px-4 md:flex-row md:items-center md:px-0">
-  <div id="projects" class="class=mb-4 grid gap-4 md:mx-auto w-full">
+<div class="mx-auto grid grid-cols-2 gap-4 w-full max-w-screen-2xl px-4 md:flex-row md:items-center md:px-0">
+  <div id="projects" class="mb-4 md:mx-auto w-full">
     {PROJECTS.map(project => (
-        <button class="p-5 rounded-lg w-full transition-colors duration-500 hover:bg-neutral-900 cursor-pointer first:active">
+        <button class="py-5 w-full border-b border-white/60 shadow-lg backdrop-blur cursor-pointer first:active group">
           <div class="flex justify-between items-center">
-            <h4 class="font-extrabold text-2xl text-left"> { project.title } </h4>
+            <span class="font-light text-left transition-all duration-200 text-white/60 group-hover:text-white"> { project.title } </span>
             
-            <UpDownArrow class="flex-shrink-0 w-4 h-4 transition-all duration-200 ease-out transform rotate-0" />
+            <UpDownArrow class="flex-shrink-0 w-4 h-4  transition-all duration-200 ease-out transform rotate-0" />
           </div>
 
-          <ol class="relative mt-5 text-left transition-all duration-500 hidden">
-            { project.description }
-          </ol>
+          <p class="relative mt-5 text-left transition-all duration-300 will-change-[height] hidden" style="height: ;"> { project.description } </p>
         </button>
     ))}
   </div>
 
   <div class="relative flex flex-col gap-4">
     {PROJECTS.map(project => (
-      <div class="bg-neutral-900 rounded-lg">
-        <p class="text-center p-2"> { project.title } </p>
-
-        <video class="w-full cursor-pointer rounded-lg px-2 pb-2" controls muted>
-          <source src={ project.demo } type="video/mp4" />
-        </video>
+      <div class="relative bg-gradient-to-b from-neutral-800 to-20% p-[1px] overflow-hidden rounded-lg ">
+        <div class="z-10 flex flex-col gap-2 p-2 bg-black rounded-lg">
+            <div aria-hidden="true" class="absolute top-0 left-1/2 right-1 h-px w-40 user-select-none center pointer-events-none max-w-full -translate-x-1/2 -translate-y-1/2 shadow-[0px_0px_100px_5px_#fff]" style="background:linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%)" />
+            <p class="text-center p-2"> { project.title } </p>
+    
+            <video class="w-full cursor-pointer rounded-lg px-2 pb-2 aspect-video" controls muted>
+              <source src={ project.demo } type="video/mp4" />
+            </video>
+        </div>
       </div>
     ))}
 </div>
+
+<style>
+#projects > button:last-child {
+    @apply border-0;
+}
+</style>
 
 <script is:inline>
 
@@ -126,15 +133,15 @@ $projects.querySelectorAll("button").forEach(button => {
   button.addEventListener("click", (event) => {
     if (button.classList.contains("active")) return
 
-    button.classList.add("bg-neutral-900", "active")
+    button.classList.add("active")
 
     const { currentTarget } = event
 
     const $svg = currentTarget.querySelector("svg")
-    const $ol = currentTarget.querySelector("ol")
+    const $p = currentTarget.querySelector("p")
     const isClosed = $svg.classList.contains("rotate-0")
 
-    $ol.classList.toggle("hidden", !isClosed)
+    $p.classList.toggle("hidden", !isClosed)
 
     const [from, to] = isClosed ? ["rotate-0", "rotate-180"] : ["rotate-180", "rotate-0"]
     $svg.classList.replace(from, to)
@@ -148,7 +155,7 @@ $projects.querySelectorAll("button").forEach(button => {
     })
 
     // close the rest of the divs 
-    $projects.querySelectorAll("ol").forEach(ol => { if (ol !== $ol) ol.classList.add("hidden") })
+    $projects.querySelectorAll("p").forEach(p => { if (p !== $p) p.classList.add("hidden") })
   })
 })
 

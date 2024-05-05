@@ -15,21 +15,17 @@ import Stack from '../sections/Stack.astro';
 			id="Home"
 			class="container items-center justify-center text-center pt-52"
 		>
-				<h1 class="text-[4.5em] font-semibold [text-shadow:_0_0_20px_black;] dark:[text-shadow:_0_0_20px_white;] mb-8">Julián de Pablo</h1>
+				<h1 class="font-display text-8xl font-medium  mb-8">Julián <br> de Pablo</h1>
 
 				<h2 class="typed text-[1.5em]"></h2>
 	
 				<div class="flex mt-20 justify-center">
 					<a class="text-center inline-flex items-center px-5 py-2.5 mr-8 text-sm rounded shadow bg-slate-100 hover:bg-slate-200 text-white dark:text-black" href="/#contact">
-							Contact me
-	
-							<!-- <RightArrowIcon/> -->
+                        Contact me
 					</a>
 	
-					<a href="/Julian-CV.pdf" download class="dark:text-[#A0A0A0] text-white bg-black dark:bg-[#262626] font-bold text-center inline-flex items-center px-5 py-2.5 mr-2 rounded">
+					<a href="/Julian-CV.pdf" download class="dark:text-[#A0A0A0] text-white text-sm bg-black dark:bg-[#262626] font-bold text-center inline-flex items-center px-5 py-2.5 mr-2 rounded">
 						Download CV
-	
-						<!-- <DonwnloadIcon/> -->
 					</a>
 				</div>
 		</Section>
@@ -69,12 +65,12 @@ import Stack from '../sections/Stack.astro';
 </Layout>
 
 <style lang="scss">
-	@import 'typed';
-	
-	.typed {
-		@include typed(
-			"Software Enginner", "Fullstack Developer",
-			2, (caret-width: 2px, caret-space: 2px)
-		);
-	}
-	</style>
+@import 'typed';
+
+.typed {
+    @include typed(
+        "Software Enginner", "Fullstack Developer",
+        2, (caret-width: 2px, caret-space: 2px)
+    );
+}
+</style>
