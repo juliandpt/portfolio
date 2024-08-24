@@ -1,4 +1,5 @@
 ---
+// Supports weights 100-900
 import '@fontsource-variable/inter';
 
 import Header from "../sections/Header.astro";
@@ -14,7 +15,7 @@ const { title, description } = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={ description } />
-		<title> { title } | Julian </title>
+		<title> Julián de Pablo </title>
 	</head>
 
 	<body class="text-black dark:text-white bg-white dark:bg-black">
@@ -27,21 +28,81 @@ const { title, description } = Astro.props
 </html>
 
 <style is:global>
-html {
-	font-family: 'Inter Variable', sans-serif;
-}
 
-/* Register your custom font family and tell the browser where to find it. */
 @font-face {
-  font-family: 'Mona Sans';
+  font-family: 'Favorit';
   src:
-    url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('/fonts/Mona-Sans.woff2') format('woff2-variations');
+    url('/fonts/Favorit.otf') format('OpenType'),
 }
 
-.font-display {
-  font-family: 'Mona Sans';
-  font-variation-settings: "wdth" 125;
+@font-face {
+  font-family: 'Right Grotesk';
+  src:
+    url('/fonts/Right_grotesk.otf') format('OpenType'),
+}
+
+html {
+	font-family: 'Favorit', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter Variable', sans-serif;
+}
+
+.fadeInImage {
+    animation: fadeInAnimation ease 6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.fadeInText {
+    animation: fadeInAnimation ease 3s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+section {
+    animation: reveal linear both 1s;
+    animation-timeline: view();
+    animation-range: entry 45% cover 30%;
+}
+
+@keyframes reveal {
+    from { 
+        opacity: 0;
+        translate: 0 50px
+    }
+    to { opacity: 1; }
+}
+
+/* @property --gradient-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+} */
+
+@keyframes roation {
+    0% { --gradient-angle: 0deg; }
+    100% { --gradient-angle: 360deg; }
+}
+
+.rotation-background {
+    content: "";
+    inset: 0;
+    background: conic-gradient(
+        from var(--gradient-angle), 
+        var(white),
+        var(black),
+        var(white));
+    border-radius: inherit;
+    animation: roation 5s linear infinite;
 }
 
 </style>

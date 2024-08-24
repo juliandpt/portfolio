@@ -1,7 +1,6 @@
 ---
 import '@fontsource/libre-barcode-128-text';
 
-import Title from "../components/Title.astro"
 import GithubIcon from "../components/icons/GithubIcon.astro";
 import GitlabIcon from "../components/icons/GitlabIcon.astro";
 import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
@@ -25,14 +24,10 @@ const SOCIALS = [
 ]
 ---
 
-
-
-<Title title="About me" />
-
-<div class="atropos w-full md:w-[700px] flex items-center justify-center">
+<div class="atropos w-full max-w-[800px] flex items-center justify-center m-auto relative">
 	<div class="atropos-scale">
 		<div class="atropos-rotate">
-			<div class="relative atropos-inner rounded-lg transition-all backdrop-blur duration-700 aspect-[0.7/1] md:aspect-[1/0.5] bg-gradient-to-t from-neutral-500 via-neutral-900 p-[2px] overflow-hidden">
+			<div class="atropos-inner rounded-lg transition-all backdrop-blur duration-700 aspect-[0.7/1] md:aspect-[1/0.5] bg-gradient-to-t from-white/20 via-neutral-900 p-[2px] overflow-hidden">
                 <div class="atropos-inner transition-all duration-700 p-8 h-full grid grid-cols-[30%_1fr_5%] grid-rows-4 gap-8 bg-black rounded-lg">
                     <div aria-hidden="true" class="top-0 left-3/4 right-1 h-px w-[300px] user-select-none center pointer-events-none absolute max-w-full -translate-x-1/2 -translate-y-1/2 shadow-[0px_0_120px_5px_#fff]" style="background:linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%)"></div>
                     
@@ -41,22 +36,22 @@ const SOCIALS = [
 					</div>
 
 					<div class="row-start-4 flex items center justify-center">
-						<p class="id text-5xl" >620696968</p>
+						<p class="text-xs text-white/70">juliandpt98@gmail.com</p>
 					</div>
 					
 					<div> 
 						<span class='font-bold text-xs text-gray-500'>Name:</span>
-						<p class='text-xl'>JULIÁN</p> 
+						<p class='text-xl'>Julián</p> 
 					</div>
 
 					<div> 
 						<span class='font-bold text-xs text-gray-500'>Surnames:</span>
-						<p class='text-xl'>DE PABLO TORREMOCHA</p> 
+						<p class='text-xl'>De Pablo Torremocha</p> 
 					</div>
 
 					<div>
 						<span class='font-bold text-xs text-gray-500'>Pronouns:</span>
-						<p class='text-xl'>HE / HIM</p> 
+						<p class='text-xl'>He / Him</p> 
 					</div>
 
 					<div class="col-start-3 row-start-1 row-span-4 flex flex-col items-center justify-center gap-6" data-atropos-offset='3'>
@@ -72,7 +67,7 @@ const SOCIALS = [
 	</div>
 </div>
 
-<p class="text-gray-600 dark:text-gray-400 mt-20">Descripción breve</p>
+<p class="text-gray-600 dark:text-gray-400 mt-20 text-center">Descripción breve</p>
 
 
 <style>
