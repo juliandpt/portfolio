@@ -16,6 +16,12 @@ const Contact = () => {
         setEmailValid(validateEmail(e.target.value));
     };
 
+    const resetForm = () => {
+        setEmail('');
+        setMessage('');
+        setButtonState('idle');
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -26,19 +32,37 @@ const Contact = () => {
 
         setButtonState('sending');
 
-        // const res = await fetch('/api/sendEmail', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ email, message }),
-        // });
+        try {
+            const res = await fetch('/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, message }),
+            });
 
-        setTimeout(() => {
-            setButtonState('sent');
-        }, 2000);
+            if (res.ok) {
+                setButtonState('ok');
 
-        console.log(res);
+                setTimeout(() => {
+                    resetForm();
+                }, 3000);
+            } else {
+                setButtonState('ko');
+
+                setTimeout(() => {
+                    resetForm();
+                }, 3000);
+            }
+
+        } catch (error) {
+            console.error('Error al enviar el mensaje', error);
+            setButtonState('error');
+
+            setTimeout(() => {
+                resetForm();
+            }, 3000);
+        }
     };
 
     return (
@@ -76,48 +100,27 @@ const Contact = () => {
                     onChange={(e) => setMessage(e.target.value)}
                 />
 
-                <div className="h-10 w-10 rotation-background"/>
-
                 <button
                     type="submit"
-                    className="rotation-background py-3 px-5 text-sm font-medium text-center text-white rounded w-full group-invalid:pointer-events-none"
-                    disabled={!emailValid}
+                    className={`py-3 px-5 h-10 text-sm font-medium text-center rounded w-full transition duration-200
+                        ${buttonState === 'ok' ? 'bg-green-500 text-white' : ''}
+                        ${buttonState === 'ko' ? 'bg-red-100 text-white' : ''}
+                        ${!emailValid || buttonState === 'sending'|| buttonState === 'ok' || buttonState === 'ko' || !email || !message
+                            ? 'text-gray-500 cursor-not-allowed' 
+                            : 'text-white hover:bg-white/10'
+                        }`}
+                    disabled={!emailValid || buttonState === 'sending' || buttonState === 'ok' || buttonState === 'ko' || !email || !message}
                 >
                     {buttonState === 'idle' && 'Send message'}
                     {buttonState === 'sending' && (
-                        <svg
-                            className="m-auto animate-spin opacity-0" // Initial opacity 0 for animation
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            onAnimationStart={() => {
-                                const svg = document.querySelector('.animate-spin');
-                                svg.style.opacity = 1; // Set opacity to 1 during animation
-                            }}
-                        >
-                            <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
-                        </svg>
+                        <div className='flex space-x-2 justify-center items-center'>
+                            <div className='h-2 w-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]'></div>
+                            <div className='h-2 w-2 bg-white rounded-full animate-bounce [animation-delay:-0.15s]'></div>
+                            <div className='h-2 w-2 bg-white rounded-full animate-bounce'></div>
+                        </div>
                     )}
-                    {buttonState === 'sent' && (
-                        <svg
-                            className="m-auto check opacity-0 fadeInImage" // Initial opacity 0 for animation
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M5 13l4 4L19 7"
-                                stroke="white"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    )}
+                    {buttonState === 'ok' && 'Email sent successfully!'}
+                    {buttonState === 'ko' && 'Error! Try again'}
                 </button>
             </form>
 

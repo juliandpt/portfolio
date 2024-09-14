@@ -28,33 +28,40 @@ const SOCIALS = [
 	<div class="atropos-scale">
 		<div class="atropos-rotate">
 			<div class="atropos-inner rounded-lg transition-all backdrop-blur duration-700 aspect-[0.7/1] md:aspect-[1/0.5] bg-gradient-to-t from-white/20 via-neutral-900 p-[2px] overflow-hidden">
-                <div class="atropos-inner transition-all duration-700 p-8 h-full grid grid-cols-[30%_1fr_5%] grid-rows-4 gap-8 bg-black rounded-lg">
-                    <div aria-hidden="true" class="top-0 left-3/4 right-1 h-px w-[300px] user-select-none center pointer-events-none absolute max-w-full -translate-x-1/2 -translate-y-1/2 shadow-[0px_0_120px_5px_#fff]" style="background:linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%)"></div>
-                    
-                    <div class="relative row-start-1 row-span-3 rounded-lg">
-						<img class='object-cover w-max h-full rounded-lg z-10' src="/images/about.png" alt='' data-atropos-offset='5' />
+				<div class="atropos-inner transition-all duration-700 p-8 h-full grid grid-cols-1 md:grid-cols-[30%_1fr_5%] grid-rows-5 md:grid-rows-4 gap-4 md:gap-8 bg-black rounded-lg">
+					<div aria-hidden="true" class="top-0 left-3/4 right-1 h-px w-[300px] user-select-none center pointer-events-none absolute max-w-full -translate-x-1/2 -translate-y-1/2 shadow-[0px_0_120px_5px_#fff]" style="background:linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.0) 0%, rgba(143, 143, 143, 0.67) 50%, rgba(0, 0, 0, 0) 100%)"></div>
+
+					<!-- Imagen -->
+					<div class="relative row-start-1 row-span-3 rounded-lg flex items-center justify-center">
+						<img class='object-cover w-max h-full rounded-lg z-10' src="/images/about.png" alt='' />
 					</div>
 
-					<div class="row-start-4 flex items center justify-center">
-						<p class="text-xs text-white/70">juliandpt98@gmail.com</p>
-					</div>
-					
-					<div> 
+					<!-- Nombre -->
+					<div class="text-center md:text-start"> 
 						<span class='font-bold text-xs text-gray-500'>Name:</span>
 						<p class='text-xl'>Julián</p> 
 					</div>
 
-					<div> 
+					<!-- Apellidos -->
+					<div class="text-center md:text-start"> 
 						<span class='font-bold text-xs text-gray-500'>Surnames:</span>
 						<p class='text-xl'>De Pablo Torremocha</p> 
 					</div>
 
-					<div>
-						<span class='font-bold text-xs text-gray-500'>Pronouns:</span>
-						<p class='text-xl'>He / Him</p> 
+                    <!-- Email en la parte inferior en móviles -->
+                    <div class="text-center md:text-start">
+						<span class='font-bold text-xs text-gray-500'>Email:</span>
+						<p class='text-xl'>juliandpt98@gmail.com</p> 
 					</div>
 
-					<div class="col-start-3 row-start-1 row-span-4 flex flex-col items-center justify-center gap-6" data-atropos-offset='3'>
+					<!-- Pronombres -->
+					<div class="md:col-start-2 text-center md:text-start">
+						<span class='font-bold text-xs text-gray-500'>Current location:</span>
+						<p class='text-xl'>Spain</p> 
+					</div>
+
+					<!-- Redes sociales -->
+					<div class="col-start-1 md:col-start-3 row-start-8 md:row-start-1 md:row-span-4 flex flex-row md:flex-col items-center justify-center gap-6 mt-4 md:mt-0" data-atropos-offset='5'>
 						{SOCIALS.map(social => (
 							<a class='relative transition duration-200 hover:scale-150 hover:rotate-1 ' href={social.link} aria-label={social.label} target="_blank" rel="noopener">
 								<social.icon class="w-6 h-6" />
@@ -66,6 +73,7 @@ const SOCIALS = [
 		</div>
 	</div>
 </div>
+
 
 <p class="text-gray-600 dark:text-gray-400 mt-20 text-center">Descripción breve</p>
 

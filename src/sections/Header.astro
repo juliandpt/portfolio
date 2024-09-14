@@ -1,108 +1,92 @@
 ---
 const navItems = [
-  {
-    title: "Experience",
-    label: "experience",
-    url: "/#experience",
-  },
-  {
-    title: "Projects",
-    label: "projects",
-    url: "/#projects",
-  },
-  {
-    title: "About Me",
-    label: "about",
-    url: "/#about",
-  },
-  {
-    title: "Contact",
-    label: "contact",
-    url: "/#contact",
-  },
-]
+    {
+        title: "Experience",
+        label: "experience",
+        url: "/#experience",
+    },
+    {
+        title: "Projects",
+        label: "projects",
+        url: "/#projects",
+    },
+    {
+        title: "About Me",
+        label: "about",
+        url: "/#about",
+    },
+    {
+        title: "Contact",
+        label: "contact",
+        url: "/#contact",
+    },
+];
 ---
 
-<header class="fixed top-0 z-20 flex items-center justify-center w-full mx-auto mt-8">
-    <nav class="flex px-3 text-xs font-medium justify-center items-center space-x-3 sm:space-x-8 bg-transparent rounded-md">
-        {navItems.map((link) => (
-            <a class="text-white/80 block px-2 py-2 hover:text-white hover:[text-shadow:_0_0_10px_white] transition duration-500" aria-label={link.label} href={link.url} >
-                {link.title}
-            </a>
-        ))}
+<header
+    class="fixed top-0 z-20 flex items-center justify-center w-full mx-auto mt-8"
+>
+    <nav
+        class="flex px-3 text-xs font-medium justify-center items-center space-x-3 sm:space-x-8 bg-transparent rounded-md"
+    >
+        {
+            navItems.map((link) => (
+                <a
+                    class="text-white/80 block px-2 py-2 hover:text-white hover:[text-shadow:_0_0_10px_white] transition duration-500"
+                    aria-label={link.label}
+                    href={link.url}
+                    data-id={link.label}
+                >
+                    {link.title}
+                </a>
+            ))
+        }
     </nav>
 </header>
 
 <style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 1px;
-  }
-
-  @keyframes nav-shadown {
-    to {
-      @apply shadow-lg backdrop-blur border border-neutral-800 dark:border-neutral-200;
+    nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 1px;
     }
-  }
+
+    @keyframes nav-shadown {
+        to {
+            @apply shadow-lg backdrop-blur border border-neutral-800 dark:border-neutral-200;
+        }
+    }
 </style>
 
 <script is:inline>
-// Manage of active link
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("nav a");
 
-const navLinks = document.querySelectorAll("ul a");
+        const handleScroll = (id) => {
+            const section = document.getElementById(id);
+            section?.scrollIntoView({ behavior: "smooth",
+            inline: 'nearest', });
+        };
 
-navLinks.forEach(link => {
-  link.classList.remove("isActive");
+        navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute("data-id");
+                handleScroll(sectionId);
+            });
+        });
 
-  const currentPath = window.location.pathname.slice("1");
-  const hrefArray = link.href.split("/");
-  const thisPath = hrefArray[hrefArray.length - 1];
+        const setActiveLink = () => {
+            const currentHash = window.location.hash;
+            navLinks.forEach((link) => {
+                link.classList.toggle(
+                    "isActive",
+                    link.getAttribute("href") === currentHash,
+                );
+            });
+        };
 
-  if (currentPath === thisPath) link.classList.add("isActive")
-});
-
-// Manage of apllication theme
-
-// const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon')
-// const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon')
-// const activePath = document.querySelector('.isActive');
-
-// const theme = localStorage.getItem("theme");
-
-// themeToggleDarkIcon.classList.add('hidden')
-// themeToggleLightIcon.classList.add('hidden')
-
-// if (theme) {
-//   if (theme === "dark") {
-//     document.documentElement.classList.add('dark')
-//     themeToggleDarkIcon.classList.toggle('hidden')
-//     activePath.classList.replace('isActive', 'isActiveDark')
-//   } 
-//   else { 
-//     document.documentElement.classList.remove('dark') 
-//     themeToggleLightIcon.classList.toggle('hidden')
-//   }
-// } 
-// else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-//   document.documentElement.classList.add('dark')
-//   localStorage.setItem("theme", "dark");
-//   themeToggleDarkIcon.classList.toggle('hidden')
-// }
-
-// document.getElementById('theme-toggle').addEventListener("click", () => {
-//   document.documentElement.classList.toggle('dark')
-  
-//   if (localStorage.theme === 'dark') {
-//     localStorage.theme = 'light'
-//     activePath.classList.replace('isActiveDark', 'isActive')
-//   } 
-//   else {
-//     localStorage.theme = 'dark'
-//     activePath.classList.replace('isActive', 'isActiveDark')
-//   }
-
-//   themeToggleDarkIcon.classList.toggle('hidden')
-//   themeToggleLightIcon.classList.toggle('hidden')
-// })
-</script> 
+        window.addEventListener("hashchange", setActiveLink);
+        setActiveLink();
+    });
+</script>
