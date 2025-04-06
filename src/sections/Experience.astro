@@ -2,36 +2,46 @@
 const JOBS = [
     {
         company: "SAS",
-        logo: "/images/sas_logo.jpg",
-        startDate: "October 2021",
-        endDate: "Present",
+        logo: "/images/sas.webp",
+        startDate: "Octubre 2021",
+        endDate: "Abril 2025",
         positions: [
             {
                 title: "Associate Technical Consultant",
-                startDate: "April 2023",
-                endDate: "Present",
-                description: "Lorem Ipsum",
+                startDate: "Abril 2023",
+                endDate: "Abril 2025",
             },
             {
                 title: "Contractor",
-                startDate: "September 2022",
-                endDate: "April 2023",
-                description: "Lorem Ipsum",
+                startDate: "Septiembre 2022",
+                endDate: "Abril 2023",
             },
             {
                 title: "Technical Intern",
-                startDate: "October 2021",
-                endDate: "September 2022",
-                description: "Lorem Ipsum",
+                startDate: "Octubre 2021",
+                endDate: "Septiembre 2022",
             },
         ],
-    }
+    },
+    {
+        company: "CaixaBank Tech",
+        logo: "/images/caixabank.webp",
+        startDate: "Abril 2025",
+        endDate: "Actualidad",
+        positions: [
+            {
+                title: "Software Engineer",
+                startDate: "Abril 2025",
+                endDate: "Actualidad",
+            },
+        ],
+    },
 ];
 ---
 
 <div id="experiences" class="relative flex flex-col mt-8 w-full max-w-[700px] mx-auto bg-transparent backdrop-blur">
     {
-        JOBS.map((job) => (
+        JOBS.reverse().map((job) => (
             <div class="relative w-full">
                 <div class="flex">
                     <img
@@ -55,7 +65,7 @@ const JOBS = [
 
                 <ol class="relative">
                     {job.positions?.map((position) => (
-                        <li class="first:mt-6">
+                        <li class="first:mt-6 group">
                             <div class="relative flex items-center">
                                 <span class="rounded w-2 h-2 mx-5 bg-white/20" />
 
@@ -68,14 +78,12 @@ const JOBS = [
                             <div class="flex guide">
                                 <span class="rouned-full w-[2px] h-auto mx-[23px] bg-white/20" />
 
-                                <div class="mb-10 pl-4">
+                                <div class="pl-4 mb-8 group-last-of-type:mb-0">
                                     <time class="mb-1 text-xs font-normal leading-none text-white/50">
                                         {" "}
-                                        {position.startDate} -{" "}
+                                        {position.startDate} - {" "}
                                         {position.endDate}{" "}
                                     </time>
-
-                                    <p> {position.description} </p>
                                 </div>
                             </div>
                         </li>

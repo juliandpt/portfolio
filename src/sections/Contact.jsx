@@ -85,7 +85,7 @@ const Contact = () => {
 
                 {!emailValid && (
                     <span className="pt-16 text-sm text-red-800">
-                        Please enter a valid email address
+                        Introduce una dirección de email válida
                     </span>
                 )}
 
@@ -94,7 +94,7 @@ const Contact = () => {
                     name="message"
                     rows="2"
                     className="resize-none block p-2.5 w-full min-h-[80px] text-sm rounded bg-black outline-none placeholder-white/40 transform duration-200 focus:shadow-[0_0_2px_rgba(255,255,255),0_0_5px_rgba(255,255,255,0.5),0_0_15px_rgba(255,255,255,0.3),0_0_30px_rgba(255,255,255,0.15)]"
-                    placeholder="Message"
+                    placeholder="Mensaje"
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -111,7 +111,7 @@ const Contact = () => {
                         }`}
                     disabled={!emailValid || buttonState === 'sending' || buttonState === 'ok' || buttonState === 'ko' || !email || !message}
                 >
-                    {buttonState === 'idle' && 'Send message'}
+                    {buttonState === 'idle' && 'Enviar mensaje'}
                     {buttonState === 'sending' && (
                         <div className='flex space-x-2 justify-center items-center'>
                             <div className='h-2 w-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]'></div>
@@ -119,12 +119,13 @@ const Contact = () => {
                             <div className='h-2 w-2 bg-white rounded-full animate-bounce'></div>
                         </div>
                     )}
-                    {buttonState === 'ok' && 'Email sent successfully!'}
-                    {buttonState === 'ko' && 'Error! Try again'}
+                    {buttonState === 'ok' && 'Email enviado con éxito!'}
+                    {buttonState === 'ko' && 'Inténtelo más tarde'}
                 </button>
             </form>
 
             <span className="absolute -z-10 top-0 left-0 right-0 mx-auto w-[50%] h-[50%] bg-white/30 rounded-full blur-[90px]" />
+
         </div>
     );
 };

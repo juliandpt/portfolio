@@ -3,7 +3,6 @@ import { Resend } from "resend"
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY)
 
-// Outputs: /builtwith.json
 export const POST: APIRoute = async ({ params, request}) => {
 
     const { email, message } = await request.json()
@@ -16,22 +15,20 @@ export const POST: APIRoute = async ({ params, request}) => {
     const send = await resend.emails.send({
         from: "new.email@resend.dev",
         to: "juliandpt98@gmail.com",
-        subject: "Nuevo mensaje del portfolio!!",
-        html: "<h1>test</h1>",
+        subject: "Nuevo mensaje del portfolio",
+        html: `
+            <div style="font-family: Arial, sans-serif;">
+                <h3>Has recibido un nuevo mensaje:</h3>
+                <p>${message}</p>
+                <hr>
+                <small>Contacto: ${email || 'No proporcionado'}</small>
+            </div>
+        `,
         text: message
-    })
+    });
 
-    if (send.data) {
-        return new Response(
-            JSON.stringify({
-                output: send.data
-            })
-        )
-    } else {
-        return new Response(
-            JSON.stringify({
-                output: send.error
-            })
-        )
-    }
+    if (send.data) return new Response(JSON.stringify({ output: send.data }))
+    
+    return new Response(JSON.stringify({ output: send.error }))
+    
 }
