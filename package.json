@@ -26,5 +26,10 @@
     "resend": "^3.2.0",
     "sass": "^1.71.1",
     "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "standard": "^17.1.2"
   }
 }

@@ -2,97 +2,111 @@
 const PROJECTS = [
   {
     title: "Infopueblo",
-    description: "Webapp de búsqueda de municipios españoles. Ofrece datos de ocio de los diferentes municipios, recopilando la información mediante web scrapping, y determinando si este pertenece a la España vaciada.",
+    description:
+      "Webapp de búsqueda de municipios españoles. Ofrece datos de ocio de los diferentes municipios, recopilando la información mediante web scrapping, y determinando si este pertenece a la España vaciada.",
     projectLink: "",
     codeLink: "https://github.com/juliandpt/Infopueblo",
     chips: [
       {
         name: "Angular.js",
         icon: "/images/angular.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "Bootstrap",
         icon: "/images/bootstrap.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "Node.js",
         icon: "/images/nodejs.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "PostgreSQL",
         icon: "/images/postgresql.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "Python",
         icon: "/images/python.png",
-        color: "primary"
-      }
+        color: "primary",
+      },
     ],
-    demo: "/videos/infopueblo.mp4"
+    demo: "/videos/infopueblo.mp4",
   },
   {
     title: "Webstats",
-    description: "Servicio web encargado de analizar la seguridad implementada en los diferentes endpoints de cualquier dominio web.",
+    description:
+      "Servicio web encargado de analizar la seguridad implementada en los diferentes endpoints de cualquier dominio web.",
     codeLink: "https://github.com/juliandpt/Webstats",
     chips: [
       {
         name: "Nuxt.js",
         icon: "/images/nuxt.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "Vuetify",
         icon: "/images/vuetify.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "Node.js",
         icon: "/images/nodejs.png",
-        color: "primary"
+        color: "primary",
       },
       {
         name: "MongoDB",
         icon: "/images/mongodb.png",
-        color: "primary"
-      }
+        color: "primary",
+      },
     ],
-    demo: "/videos/webstats.mp4"
+    demo: "/videos/webstats.mp4",
   },
-]
+];
 ---
 
-<div id="projects" class="mx-auto gap-4 w-full max-w-[700px] px-4 md:flex-row md:items-center md:px-0">
-    {PROJECTS.map(project => (
-        <div class="mb-4 md:mx-auto w-full flex flex-col mt-16 first:mt-0"> 
-            <h3 class="font-light text-xl"> { project.title } </h3>
+<div
+  id="projects"
+  class="mx-auto gap-4 w-full max-w-[700px] px-4 md:flex-row md:items-center md:px-0"
+>
+  {
+    PROJECTS.map((project) => (
+      <div class="mb-4 md:mx-auto w-full flex flex-col mt-16 first:mt-0">
+        <h3 class="font-light text-xl"> {project.title} </h3>
 
-            <p class="mt-5 text-white/60"> { project.description } </p>
+        <p class="mt-5 text-white/60"> {project.description} </p>
 
-            <div class="flex flex-wrap mt-5">
-                {project.chips.map(chip => (
-                    <div class=" flex items-center p-[1px] rounded bg-gradient-to-tr from-white/20 to-transparent mb-2 mr-2">
-                        <span class="text-xs text-white/90 px-3 py-1.5 rounded bg-black"> { chip.name } </span>
-                    </div>
-                ))}
+        <div class="flex flex-wrap mt-5">
+          {project.chips.map((chip) => (
+            <div class=" flex items-center p-[1px] rounded bg-gradient-to-tr from-white/20 to-transparent mb-2 mr-2">
+              <span class="text-xs text-white/90 px-3 py-1.5 rounded bg-black">
+                {" "}
+                {chip.name}{" "}
+              </span>
             </div>
-            
-            <video class="cursor-pointer aspect-video h-auto w-full rounded-lg shadow-2xl shadow-white/10 mt-4" controls muted>
-                <source src={ project.demo } type="video/mp4" />
-            </video>
+          ))}
         </div>
-    ))}
+
+        <video
+          class="cursor-pointer aspect-video h-auto w-full rounded-lg shadow-2xl shadow-white/10 mt-4"
+          controls
+          muted
+        >
+          <source src={project.demo} type="video/mp4" />
+        </video>
+      </div>
+    ))
+  }
 </div>
 
 <style>
-#projects > hr:last-child {
+  #projects > hr:last-child {
     @apply hidden;
-}
+  }
 
-#projects > h3:first-child {
+  #projects > h3:first-child {
     @apply mt-0;
-}
+  }
 </style>

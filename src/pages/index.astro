@@ -1,66 +1,95 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Section from '../components/Section.astro';
-import Contact from '../sections/Contact.jsx';
-import Experience from '../sections/Experience.astro';
-import About from '../sections/About.astro';
-import Projects from '../sections/Projects.astro';
-import Stack from '../sections/Stack.astro';
-import Title from '../components/Title.astro';
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import Contact from "@/sections/Contact.jsx";
+import Experience from "@/sections/Experience.astro";
+import About from "@/sections/About.astro";
+import Projects from "@/sections/Projects.astro";
+import Stack from "@/sections/Stack.astro";
+import Title from "@/components/Title.astro";
+import Header from "@/sections/Header.astro";
+import Footer from "@/sections/Footer.astro";
 ---
 
 <Layout>
-	<main>
-		<Section class="m-auto flex flex-col justify-center min-h-[100vh]">
-            <div class="relative ext-center">
-                <img src="/images/about.webp" alt="Hero" class="w-[30%] mx-auto opacity-0 fadeInImage" />
+  <main>
+    <Header />
 
-                <div class="flex justify-between">
-                    <span class="text-xs sm:text-sm text-transparent opacity-0 fadeInText bg-gradient-to-l from-white/40 from-30% to-white/20 bg-clip-text">Desarrollador Fullstack</span>
-                    <span class="text-xs sm:text-sm text-transparent opacity-0 fadeInText bg-gradient-to-r from-white/40 from-70% to-white/20 bg-clip-text">Ingeniero de Software</span>
-                </div>
-                
-                <h1 class="text-center text-[11.5vw] md:text-[9vw] lg:text-[6.5vw] font-inter tracking-tight font-[10] p-0 text-transparent opacity-0 bg-gradient-to-b from-white from-35% to-transparent bg-clip-text fadeInText">
-                    <span class="font-bold">JULIÁN</span>DEPABLO
-                </h1>
+    <Section class="m-auto flex flex-col justify-center min-h-[100vh]">
+      <div class="relative ext-center">
+        <img
+          src="/images/perfil.webp"
+          alt="Hero"
+          class="w-[30%] mx-auto opacity-0 fadeInImage"
+        />
 
-                <span class="absolute -z-10 top-[20%] right-0 left-0 mx-auto w-[30%] h-[30%] bg-white/50 rounded-full blur-[120px] fadeInImage" />
-            </div>
-	
-            <div class="flex mt-10 sm:mt-20 justify-center space-x-4 sm:space-x-8 opacity-0 fadeInText">
-                <a class="text-center inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2.5 text-sm rounded bg-gradient-to-bl from-white/90 to-white/70 hover:bg-white hover:shadow-[0_0_10px_rgba(255,255,255),0_0_20px_rgba(255,255,255,0.2),0_0_50px_rgba(255,255,255,0.5)] text-black transition duration-300" href="/#contact">
-                    Contactar
-                </a>
+        <div class="flex justify-between">
+          <span
+            class="text-xs sm:text-sm text-transparent opacity-0 fadeInText bg-gradient-to-l from-white/40 from-30% to-white/20 bg-clip-text"
+            >Desarrollador Fullstack</span
+          >
+          <span
+            class="text-xs sm:text-sm text-transparent opacity-0 fadeInText bg-gradient-to-r from-white/40 from-70% to-white/20 bg-clip-text"
+            >Ingeniero de Software</span
+          >
+        </div>
 
-                <a href="/Julian-CV.pdf" download class="text-[#A0A0A0] text-sm hover:[text-shadow:_0_0_10px_rgb(210,210,210)] text-center inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2.5 rounded trnsition duration-300">
-                    Descargar CV
-                </a>
-            </div>
-		</Section>
+        <h1
+          class="text-center text-[11.5vw] md:text-[9vw] lg:text-[6.5vw] font-inter tracking-tight font-[10] p-0 text-transparent opacity-0 bg-gradient-to-b from-white from-35% to-transparent bg-clip-text fadeInText"
+        >
+          <span class="font-bold">JULIÁN</span>DEPABLO
+        </h1>
 
-		<Section id="experience">
-            <Title title="Experiencia" />
-			<Experience />
-		</Section>
+        <span
+          class="absolute -z-10 top-[20%] right-0 left-0 mx-auto w-[30%] h-[30%] bg-white/50 rounded-full blur-[120px] fadeInImage"
+        ></span>
+      </div>
 
-		<Section id="projects">
-            <Title title="Proyectos" />
-			<Projects />
-		</Section>
+      <div
+        class="flex mt-10 sm:mt-20 justify-center space-x-4 sm:space-x-8 opacity-0 fadeInText"
+      >
+        <a
+          class="text-center inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2.5 text-sm rounded bg-gradient-to-bl from-white/90 to-white/70 hover:bg-white hover:shadow-[0_0_10px_rgba(255,255,255),0_0_20px_rgba(255,255,255,0.2),0_0_50px_rgba(255,255,255,0.5)] text-black transition duration-300"
+          href="/#contact"
+        >
+          Contactar
+        </a>
 
-		<Section id="about" class="justify-center items-center ">
-            <Title title="Sobre mi" />
-			<About />
-		</Section>
+        <a
+          href="/Julian-CV.pdf"
+          download
+          class="text-[#A0A0A0] text-sm hover:[text-shadow:_0_0_10px_rgb(210,210,210)] text-center inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2.5 rounded trnsition duration-300"
+        >
+          Descargar CV
+        </a>
+      </div>
+    </Section>
 
-		<Section id="stack">
-            <Title title="Stack" />
-			<Stack />
-		</Section>
+    <Section id="experience">
+      <Title title="Experiencia" />
+      <Experience />
+    </Section>
 
-		<Section id="contact">
-            <Title title="Contacto" />
-			<Contact client:load />
-		</Section>
-	</main>
+    <Section id="projects">
+      <Title title="Proyectos" />
+      <Projects />
+    </Section>
+
+    <Section id="about" class="justify-center items-center">
+      <Title title="Sobre mi" />
+      <About />
+    </Section>
+
+    <Section id="stack">
+      <Title title="Stack" />
+      <Stack />
+    </Section>
+
+    <Section id="contact">
+      <Title title="Contacto" />
+      <Contact client:load />
+    </Section>
+
+    <Footer />
+  </main>
 </Layout>
