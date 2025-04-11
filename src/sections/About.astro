@@ -4,6 +4,7 @@ import "@fontsource/libre-barcode-128-text";
 import GithubIcon from "@/components/icons/GithubIcon.astro";
 import GitlabIcon from "@/components/icons/GitlabIcon.astro";
 import LinkedinIcon from "@/components/icons/LinkedinIcon.astro";
+import { Image } from "astro:assets";
 
 const SOCIALS = [
   {
@@ -45,10 +46,12 @@ const SOCIALS = [
           <div
             class="relative row-start-1 row-span-3 rounded-lg flex items-center justify-center"
           >
-            <img
+            <Image
               class="object-cover w-1/2 sm:w-full h-full rounded-lg z-10"
               src="/images/perfil.webp"
-              alt=""
+              alt="Profile picture"
+              width={400}
+              height={400}
             />
           </div>
 

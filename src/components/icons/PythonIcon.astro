@@ -1,1 +1,6 @@
-<img {...Astro.props} src="./images/python.webp" alt="image description" />
+---
+import { Image } from "astro:assets";
+import pythonImage from "#/images/python.webp";
+---
+
+<Image {...Astro.props} src={pythonImage} alt="Python Icon" />

@@ -9,6 +9,8 @@ import Stack from "@/sections/Stack.astro";
 import Title from "@/components/Title.astro";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
+import { Image } from "astro:assets";
+import perfilImage from "#/images/perfil.webp";
 ---
 
 <Layout>
@@ -17,8 +19,8 @@ import Footer from "@/sections/Footer.astro";
 
     <Section class="m-auto flex flex-col justify-center min-h-[100vh]">
       <div class="relative ext-center">
-        <img
-          src="/images/perfil.webp"
+        <Image
+          src={perfilImage}
           alt="Hero"
           class="w-[30%] mx-auto opacity-0 fadeInImage"
         />
