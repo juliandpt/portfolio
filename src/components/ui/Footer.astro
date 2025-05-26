@@ -1,0 +1,48 @@
+---
+const LINKS = [
+  {
+    title: "Experiencia",
+    url: "/#experience",
+  },
+  {
+    title: "Proyectos",
+    url: "/#projects",
+  },
+  {
+    title: "Sobre mi",
+    url: "/#about",
+  },
+  {
+    title: "Contacto",
+    url: "/#contact",
+  },
+];
+---
+
+<footer
+  class="w-full mx-auto text-center items-center max-w-screen-xl p-4 mb-10 md:flex md:justify-between"
+>
+  <span class="text-xs text-neutral-300"> Julián de Pablo </span>
+
+  <ul
+    class="relative flex flex-wrap items-center justify-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+  >
+    {
+      LINKS.map((link) => (
+        <>
+          <li>
+            <a
+              href={link.url}
+              class="mx-4 text-xs hover:text-black hover:[text-shadow:_0_0_20px_black] dark:hover:text-white dark:hover:[text-shadow:_0_0_10px_white] transition duration-1000"
+            >
+              {" "}
+              {link.title}
+            </a>
+          </li>
+
+          <span class="rounded-full w-[2px] h-4 bg-neutral-600 last:w-0" />
+        </>
+      ))
+    }
+  </ul>
+</footer>

@@ -1,0 +1,91 @@
+---
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experience",
+    url: "/#experience",
+  },
+  {
+    title: "Proyectos",
+    label: "projects",
+    url: "/#projects",
+  },
+  {
+    title: "Sobre mi",
+    label: "about",
+    url: "/#about",
+  },
+  {
+    title: "Contacto",
+    label: "contact",
+    url: "/#contact",
+  },
+];
+---
+
+<header
+  class="fixed top-0 z-20 flex items-center justify-center w-full mx-auto mt-8"
+>
+  <nav
+    class="flex px-3 text-xs font-medium justify-center items-center space-x-3 sm:space-x-8 bg-transparent rounded-md"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="text-white/80 block px-2 py-2 hover:text-white hover:[text-shadow:_0_0_10px_white] transition duration-500"
+          aria-label={link.label}
+          href={link.url}
+          data-id={link.label}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 1px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg backdrop-blur border border-neutral-800 dark:border-neutral-200;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("nav a");
+
+    const handleScroll = (id) => {
+      const section = document.getElementById(id);
+      section?.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+    };
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const sectionId = link.getAttribute("data-id");
+        handleScroll(sectionId);
+      });
+    });
+
+    const setActiveLink = () => {
+      const currentHash = window.location.hash;
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          "isActive",
+          link.getAttribute("href") === currentHash,
+        );
+      });
+    };
+
+    window.addEventListener("hashchange", setActiveLink);
+    setActiveLink();
+  });
+</script>
