@@ -1,9 +1,8 @@
 ---
-// import "@fontsource-variable/inter";
+import '@/styles/global.css'
+import Header from '@/components/ui/Header.astro'
 
-import "@/styles/global.css";
-
-const { description } = Astro.props;
+const { description } = Astro.props
 ---
 
 <!doctype html>
@@ -17,8 +16,9 @@ const { description } = Astro.props;
     <title>Julián de Pablo</title>
   </head>
 
-  <body>
-    <main>
+  <body class="font-geist min-h-screen scroll-smooth bg-neutral-900 text-white antialiased">
+    <Header />
+    <main class="container mx-auto max-w-4xl px-8">
       <slot />
     </main>
   </body>

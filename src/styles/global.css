@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-geist: 'Geist';
+  --font-geist-mono: 'GeistMono';
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMonoVF.woff2') format('woff2');
+  font-display: swap;
+}
+
+nav {
+  animation: nav-shadown 1s linear both;
+  animation-timeline: scroll();
+  animation-range: 0 1px;
+}
+
+@keyframes nav-shadown {
+  to {
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(55 65 81);
+  }
+}

@@ -1,11 +1,11 @@
-interface Tech {
-  name: string;
-}
-
 export interface Project {
-  title: string;
-  description: string;
-  publicLink?: string;
-  codeLink: string;
-  techs: Tech[];
+  title: string
+  description: string
+  publicLink?: {
+    title: string
+    href: string
+    class?: string
+  }
+  codeLink: string
+  tags: string[]
 }
