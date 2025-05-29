@@ -9,8 +9,6 @@ export const EXPERIENCES: Experience[] = [
       website: {
         href: 'https://www.sas.com/',
         title: 'SAS',
-        class:
-          'group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white',
       },
     },
     startDate: '2020',
@@ -24,8 +22,6 @@ export const EXPERIENCES: Experience[] = [
       website: {
         href: 'https://www.sas.com/',
         title: 'SAS',
-        class:
-          'group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white',
       },
     },
     startDate: '2022',
@@ -39,8 +35,6 @@ export const EXPERIENCES: Experience[] = [
       website: {
         href: 'https://www.sas.com/',
         title: 'SAS',
-        class:
-          'group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white',
       },
     },
     startDate: '2023',
@@ -54,8 +48,6 @@ export const EXPERIENCES: Experience[] = [
       website: {
         href: 'https://caixabanktech.com/',
         title: 'CaixaBank Tech',
-        class:
-          'group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white',
       },
     },
     startDate: '2025',

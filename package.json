@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,10 +10,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.1.0",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.8.0",
-    "svelte": "^5.33.4",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3"
   },

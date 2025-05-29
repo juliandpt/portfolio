@@ -1,27 +1,23 @@
 ---
 import LinkArrowIcon from '@/components/ui/icons/LinkArrowIcon.astro'
+import type { Link as LinkType } from '@/types/link'
+import type { Image as ImageType } from '@/types/image'
 
 interface Props {
-  link: {
-    title?: string
-    href: string
-    class?: string
-  }
-  image?: {
-    src: string
-    alt: string
-  }
+  link: LinkType
+  image?: ImageType
+  linkClass?: string
   iconClass?: string
 }
 
-const { image, link, iconClass } = Astro.props
+const { image, link, linkClass, iconClass } = Astro.props
 ---
 
 <a
   href={link.href}
   target="_blank"
   rel="noopener noreferrer"
-  class=`group flex items-center gap-1.5 ${link.class}`
+  class=`group flex items-center gap-1.5 ${linkClass}`
 >
   {image && <img src={image.src} alt={image.alt} class="rounded-xs h-3 w-3" />}
   {link.title && <span>{link.title}</span>}

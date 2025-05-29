@@ -1,11 +1,9 @@
+import type { Link } from '@/types/link'
+
 export interface Project {
   title: string
   description: string
-  publicLink?: {
-    title: string
-    href: string
-    class?: string
-  }
+  publicLink?: Link
   codeLink: string
   tags: string[]
 }
