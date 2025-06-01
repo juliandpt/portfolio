@@ -1,8 +1,8 @@
 export const NAV_ITEMS = [
   {
-    title: 'Experiencia',
-    label: 'experience',
-    href: '/#experience',
+    title: 'Sobre mi',
+    label: 'about',
+    href: '/#about',
   },
   {
     title: 'Proyectos',
@@ -10,9 +10,9 @@ export const NAV_ITEMS = [
     href: '/#projects',
   },
   {
-    title: 'Sobre mi',
-    label: 'about',
-    href: '/#about',
+    title: 'Experiencia',
+    label: 'experience',
+    href: '/#experience',
   },
   {
     title: 'Contacto',

@@ -2,9 +2,13 @@
 import Projects from '@/components/sections/Projects.astro'
 import Layout from '@/layouts/Layout.astro'
 import Experiences from '@/components/sections/Experiences.astro'
+import Contact from '@/components/sections/Contact'
+import About from '@/components/sections/About.astro'
 ---
 
 <Layout>
+  <About />
   <Projects />
   <Experiences />
+  <Contact client:load />
 </Layout>

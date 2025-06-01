@@ -6,20 +6,39 @@ const { description } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
+    <!-- Básicos -->
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>Julián de Pablo</title>
+    <meta property="og:title" content="Julián de Pablo" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://juliandepablo.com/images/favicon.ico" />
+    <meta property="og:url" content="https://juliandepablo.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Julián de Pablo" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://juliandepablo.com/images/favicon.ico" />
+    <meta name="twitter:site" content="@tuhandle" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://juliandepablo.com/" />
+    <meta name="robots" content="index, follow" />
   </head>
-
   <body class="font-geist min-h-screen scroll-smooth bg-neutral-900 text-white antialiased">
     <Header />
-    <main class="container mx-auto max-w-4xl px-8">
+    <main class="container mx-auto max-w-4xl flex-col px-8">
       <slot />
     </main>
   </body>
 </html>
+
+<script>
+  import { inject } from '@vercel/analytics'
+  inject()
+</script>

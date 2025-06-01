@@ -21,8 +21,12 @@ const { startDate, endDate, role, description, company } = Astro.props
     <Link
       link={company.website}
       image={company.image}
-      linkClass="group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white"
-      iconClass="h-3 w-3 duration-150 group-hover:translate-x-[1.5px]"
+      classes={{
+        linkClass:
+          'group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white',
+        iconClass: 'h-3 w-3 duration-150 group-hover:translate-x-[1.5px]',
+      }}
+      showArrow={true}
     />
   </div>
   <p class="mt-3 text-pretty text-sm dark:text-neutral-400">{description}</p>

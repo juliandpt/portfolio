@@ -3,41 +3,50 @@ import GithubIcon from '@/components/ui/icons/GithubIcon.astro'
 import Link from '@/components/ui/Link.astro'
 import Tag from '@/components/ui/Tag.astro'
 
-const { title, description, publicLink, codeLink, tags } = Astro.props
+const { title, description, publicLink, codeLink, tags, image } = Astro.props
 ---
 
 <div
   class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
 >
-  <input
+  <!-- <input
     aria-hidden="true"
     class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border border-black/50 transition-opacity duration-500 placeholder:select-none"
-  />
+  /> -->
   <div class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition duration-300">
   </div>
 
   <div class="flex flex-col space-y-3">
     <div class="flex w-full items-center justify-between">
-      {
-        publicLink ? (
-          <Link
-            link={publicLink}
-            iconClass="h-3.25 w-3.25 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100"
-          />
-        ) : (
-          <p class="font-medium">{title}</p>
-        )
-      }
+      <div class="flex items-center space-x-2.5">
+        {image && <img src={image.src} alt={image.alt} class="h6 w-6" />}
+        {
+          publicLink ? (
+            <Link
+              link={publicLink}
+              classes={{
+                linkClass:
+                  'group flex items-center gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline',
+                iconClass:
+                  'h-3.25 w-3.25 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100',
+              }}
+              showArrow={true}
+            />
+          ) : (
+            <p class="font-medium">{title}</p>
+          )
+        }
+      </div>
       {
         codeLink && (
           <a href={codeLink} target="_blank" rel="noopener">
-            <GithubIcon class="h-4 w-5 fill-neutral-400 transition-colors duration-200 hover:fill-white" />
+            <GithubIcon class="h-4 w-6 fill-neutral-400 transition-colors duration-200 hover:fill-white" />
           </a>
         )
       }
     </div>
-    <p class="truncate text-sm dark:text-neutral-400">{description}</p>
-    <div class="flex items-center space-x-1 overflow-y-auto">
+    <p class="truncate text-sm text-neutral-400">{description}</p>
+    <div class="flex items-center space-x-1 overflow-x-auto">
       {tags.map((tag: string) => <Tag tag={tag} />)}
     </div>
   </div>

@@ -5,25 +5,12 @@ import ProjectCard from '@/components/ui/ProjectCard.astro'
 
 <section
   id="projects"
-  class="flex flex-col items-center justify-center gap-8 py-16 md:flex-row md:gap-16"
+  class="animate-in animate-delay-100 flex flex-col items-center justify-center gap-8 pt-16 md:flex-row md:gap-16"
 >
   <div class="w-full items-center">
-    <h2 class="text-xl font-medium">Projects</h2>
+    <h2 class="text-xl font-medium">Proyectos</h2>
     <div class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2" id="cards">
       {PROJECTS.map((project) => <ProjectCard {...project} />)}
     </div>
   </div>
 </section>
-
-<script is:inline>
-  document.getElementById('cards').onmousemove = (e) => {
-    for (const card of document.getElementsByClassName('card')) {
-      const rect = card.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top
-
-      card.style.setProperty('--mouse-x', `${x}px`)
-      card.style.setProperty('--mouse-y', `${y}px`)
-    }
-  }
-</script>

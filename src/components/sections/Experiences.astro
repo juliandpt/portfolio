@@ -3,8 +3,8 @@ import { EXPERIENCES } from '@/consts/experiences'
 import ExperienceItem from '@/components/ui/ExperienceItem.astro'
 ---
 
-<section id="projects">
-  <h2 class="text-xl font-medium">Experience</h2>
+<section id="experience" class="animate-in animate-delay-200 pt-16">
+  <h2 class="text-xl font-medium">Experiencia</h2>
 
   <ol class="relative mt-4 space-y-6 border-s-2 border-neutral-300 dark:border-neutral-800">
     {EXPERIENCES.reverse().map((experience) => <ExperienceItem {...experience} />)}
