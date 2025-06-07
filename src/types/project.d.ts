@@ -7,6 +7,6 @@ export interface Project {
   description: string
   image?: Image
   publicLink?: Link
-  codeLink: string
+  codeLink?: string
   tags: Technology[]
 }
