@@ -8,11 +8,17 @@ import NuxtIcon from '@/components/ui/icons/NuxtIcon.astro'
 import PostgresqlIcon from '@/components/ui/icons/PostgresqlIcon.astro'
 import TailwindIcon from '@/components/ui/icons/TailwindIcon.astro'
 import VuetifyIcon from '@/components/ui/icons/VuetifyIcon.astro'
+import ReactIcon from '@/components/ui/icons/ReactIcon.astro'
+import ChakraIcon from '@/components/ui/icons/ChakraIcon.astro'
 
 export const PROJECTS: Project[] = [
   {
     title: 'infopueblo',
     description: '🏘️ Plataforma que promociona el ocio rural en España.',
+    image: {
+      src: '/images/infopueblo-logo.webp',
+      alt: 'Logo de infopueblo',
+    },
     codeLink: 'https://github.com/juliandpt/infopueblo',
     tags: [
       {
@@ -58,6 +64,28 @@ export const PROJECTS: Project[] = [
       {
         name: 'MongoDB',
         logo: MongodbIcon,
+      },
+    ],
+  },
+  {
+    title: 'facilitea',
+    description: '🛍️ Plataforma de e-commerce de CaixaBank',
+    image: {
+      src: '/images/facilitea-logo.webp',
+      alt: 'Logo de facilitea',
+    },
+    publicLink: {
+      title: 'facilitea',
+      href: 'https://www.facilitea.com/',
+    },
+    tags: [
+      {
+        name: 'React',
+        logo: ReactIcon,
+      },
+      {
+        name: 'Chakra UI',
+        logo: ChakraIcon,
       },
     ],
   },
