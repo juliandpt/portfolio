@@ -7,15 +7,9 @@ const { title, description, publicLink, codeLink, tags, image } = Astro.props
 ---
 
 <div
-  class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
+  class="interactive-card relative flex flex-col rounded-md border border-neutral-800 px-3 py-4 shadow-sm transition-colors duration-300 ease-in-out hover:border-neutral-700"
+  style="--x: 50%; --y: 50%;"
 >
-  <!-- <input
-    aria-hidden="true"
-    class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border border-black/50 transition-opacity duration-500 placeholder:select-none"
-  /> -->
-  <div class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition duration-300">
-  </div>
-
   <div class="flex flex-col space-y-3">
     <div class="flex w-full items-center justify-between">
       <div class="flex items-center space-x-2.5">
@@ -51,3 +45,30 @@ const { title, description, publicLink, codeLink, tags, image } = Astro.props
     </div>
   </div>
 </div>
+
+<style>
+  .interactive-card:hover {
+    background-image: radial-gradient(circle at var(--x) var(--y), #232323, transparent 300px);
+    transition: ease-in-out 300ms;
+    will-change: background-image;
+  }
+</style>
+
+<script type="module">
+  if (typeof window !== 'undefined') {
+    document.querySelectorAll('.interactive-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+        card.style.setProperty('--x', `${x}px`)
+        card.style.setProperty('--y', `${y}px`)
+      })
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--x', `50%`)
+        card.style.setProperty('--y', `50%`)
+      })
+    })
+  }
+</script>
