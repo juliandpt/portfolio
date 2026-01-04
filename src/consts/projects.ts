@@ -94,7 +94,7 @@ export const PROJECTS: Project[] = [
     description: '💍 Página de informacion de bodas.',
     publicLink: {
       title: 'boda-maria-y-sergio',
-      href: 'https://bodonmaldochon.es/',
+      href: 'https://boda-maria-y-sergio.vercel.app/',
     },
     codeLink: 'https://github.com/juliandpt/boda-maria-y-sergio',
     tags: [
