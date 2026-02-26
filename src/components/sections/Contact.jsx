@@ -89,7 +89,7 @@ const Contact = () => {
             name="message"
             rows="2"
             autoComplete="off"
-            className="field-sizing-content block min-h-[80px] w-full transform resize-none rounded border border-neutral-700 p-2.5 text-sm placeholder-neutral-600 duration-200 focus:border-neutral-500 focus:placeholder-neutral-500 focus:outline-none"
+            className="field-sizing-content block min-h-20 w-full transform resize-none rounded border border-neutral-700 p-2.5 text-sm placeholder-neutral-600 duration-200 focus:border-neutral-500 focus:placeholder-neutral-500 focus:outline-none"
             placeholder="Mensaje"
             required
             value={message}
