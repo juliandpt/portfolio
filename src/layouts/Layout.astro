@@ -1,8 +1,6 @@
 ---
 import '@/styles/global.css'
 import Header from '@/components/ui/Header.astro'
-
-const { description } = Astro.props
 ---
 
 <!doctype html>
@@ -13,16 +11,16 @@ const { description } = Astro.props
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <meta name="description" content="Portfolio de Julián de Pablo, software engineer" />
     <title>Julián de Pablo</title>
     <meta property="og:title" content="Julián de Pablo" />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content="Portfolio de Julián de Pablo, software engineer" />
     <meta property="og:image" content="https://juliandepablo.com/images/favicon.ico" />
     <meta property="og:url" content="https://juliandepablo.com/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Julián de Pablo" />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content="Portfolio de Julián de Pablo, software engineer" />
     <meta name="twitter:image" content="https://juliandepablo.com/images/favicon.ico" />
     <meta name="twitter:site" content="@tuhandle" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
