@@ -24,14 +24,15 @@ const { image, link, techLogo, showArrow, classes } = Astro.props
   href={link.href}
   target="_blank"
   rel="noopener noreferrer"
-  class=`group flex items-center gap-1.5 ${classes?.linkClass}`
+  aria-label={`Navigate to ${link.title} website`}
+  class={`group flex items-center gap-1.5 ${classes?.linkClass}`}
 >
   {
     image && (
       <img src={image.src} alt={image.alt} class={`rounded-xs h-3 w-3 ${classes?.imageClass}`} />
     )
   }
-  {techLogo && <techLogo.logo class={`${classes?.logoClass}`} />}
+  {techLogo && <techLogo.logo class={`${classes?.logoClass}`} title={techLogo.name} />}
   {link.title && <span>{link.title}</span>}
-  {showArrow && <LinkArrowIcon class={`${classes?.iconClass}`} />}
+  {showArrow && <LinkArrowIcon class={`${classes?.iconClass}`} title="Arrow Icon" />}
 </a>

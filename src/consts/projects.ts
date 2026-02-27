@@ -77,6 +77,7 @@ export const PROJECTS: Project[] = [
     publicLink: {
       title: 'facilitea',
       href: 'https://www.facilitea.com/',
+      aria_label: 'Navegar a la página de facilitea',
     },
     tags: [
       {
@@ -95,6 +96,7 @@ export const PROJECTS: Project[] = [
     publicLink: {
       title: 'boda-maria-y-sergio',
       href: 'https://boda-maria-y-sergio.vercel.app/',
+      aria_label: 'Navegar a la página de la boda de María y Sergio',
     },
     codeLink: 'https://github.com/juliandpt/boda-maria-y-sergio',
     tags: [

@@ -33,7 +33,7 @@ const { title, description, publicLink, codeLink, tags, image } = Astro.props
       </div>
       {
         codeLink && (
-          <a href={codeLink} target="_blank" rel="noopener">
+          <a href={codeLink} target="_blank" rel="noopener" aria-label="View source code on GitHub">
             <GithubIcon class="h-4 w-6 fill-neutral-400 transition-colors duration-200 hover:fill-white" />
           </a>
         )
