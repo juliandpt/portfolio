@@ -20,6 +20,8 @@
 }
 
 nav {
+  border: 1px solid;
+  border-color: transparent;
   animation: nav-shadown 1s linear both;
   animation-timeline: scroll();
   animation-range: 0 1px;
@@ -31,7 +33,7 @@ nav {
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -4px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12px);
-    border: 1px solid oklch(26.9% 0 0);
+    border-color: oklch(26.9% 0 0);
   }
 }
 
@@ -49,6 +51,11 @@ nav {
 .animate-in {
   opacity: 0;
   animation: fade-up 0.5s ease-out forwards;
+}
+
+html.has-loaded .animate-in {
+  animation: none;
+  opacity: 1;
 }
 
 .animate-delay-0 {

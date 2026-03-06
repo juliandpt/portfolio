@@ -1,6 +1,6 @@
 import LinkedinIcon from '@/components/ui/icons/LinkedinIcon.astro'
 import GithubIcon from '@/components/ui/icons/GithubIcon.astro'
-import XIcon from '@/components/ui/icons/XIcon.astro'
+import GmailIcon from '@/components/ui/icons/GmailIcon.astro'
 
 export const socials = [
   {
@@ -12,7 +12,6 @@ export const socials = [
       logo: LinkedinIcon,
     },
     showArrow: false,
-    hover: 'hover:fill-[#0A66C2]',
   },
   {
     link: {
@@ -23,17 +22,15 @@ export const socials = [
       logo: GithubIcon,
     },
     showArrow: false,
-    hover: 'hover:fill-white',
   },
   {
     link: {
-      href: 'https://x.com/Depabloj',
-      aria_label: 'Navegar al perfil de X de Julian De Pablo',
+      href: 'mailto:juliandpt98@gmail.com',
+      aria_label: 'Enviar correo electrónico a Julian De Pablo',
     },
     techLogo: {
-      logo: XIcon,
+      logo: GmailIcon,
     },
     showArrow: false,
-    hover: 'hover:fill-white',
   },
 ]

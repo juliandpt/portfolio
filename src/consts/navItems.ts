@@ -14,9 +14,4 @@ export const NAV_ITEMS = [
     label: 'experience',
     href: '/#experience',
   },
-  {
-    title: 'Contacto',
-    label: 'contact',
-    href: '/#contact',
-  },
 ]

@@ -4,7 +4,10 @@ import type { Technology } from '@/types/technology'
 
 export interface Project {
   title: string
+  shortDescription: string
   description: string
+  features: string[]
+  isInProgress?: boolean
   image?: Image
   publicLink?: Link
   codeLink?: string

@@ -1,5 +1,5 @@
 ---
-import LinkArrowIcon from '@/components/ui/icons/LinkArrowIcon.astro'
+import ArrowRightTopIcon from '@/components/ui/icons/ArrowRightTopIcon.astro'
 import type { Link as LinkType } from '@/types/link'
 import type { Image as ImageType } from '@/types/image'
 import type { Technology } from '@/types/tecnology'
@@ -17,7 +17,7 @@ interface Props {
   }
 }
 
-const { image, link, techLogo, showArrow, classes } = Astro.props
+const { image, link, techLogo, showArrow, classes, ...props } = Astro.props
 ---
 
 <a
@@ -26,6 +26,7 @@ const { image, link, techLogo, showArrow, classes } = Astro.props
   rel="noopener noreferrer"
   aria-label={`Navigate to ${link.title} website`}
   class={`group flex items-center gap-1.5 ${classes?.linkClass}`}
+  {...props}
 >
   {
     image && (
@@ -34,5 +35,5 @@ const { image, link, techLogo, showArrow, classes } = Astro.props
   }
   {techLogo && <techLogo.logo class={`${classes?.logoClass}`} title={techLogo.name} />}
   {link.title && <span>{link.title}</span>}
-  {showArrow && <LinkArrowIcon class={`${classes?.iconClass}`} title="Arrow Icon" />}
+  {showArrow && <ArrowRightTopIcon class={`${classes?.iconClass}`} title="Arrow Icon" />}
 </a>

@@ -1,48 +1,58 @@
 ---
-import GithubIcon from '@/components/ui/icons/GithubIcon.astro'
 import Link from '@/components/ui/Link.astro'
-import Tag from '@/components/ui/Tag.astro'
+import TagInProgress from '@/components/ui/TagInProgress.astro'
 
-const { title, description, publicLink, codeLink, tags, image } = Astro.props
+const { title, shortDescription, isInProgress, publicLink, image } = Astro.props
+const slug = title.toLowerCase().replace(/\s+/g, '-')
 ---
 
 <div
-  class="interactive-card relative flex flex-col rounded-md border border-neutral-800 px-3 py-4 shadow-sm transition-colors duration-300 ease-in-out hover:border-neutral-700"
+  class="interactive-card relative flex flex-col rounded-md border border-neutral-800 p-5 shadow-sm transition-colors duration-300 ease-in-out hover:border-neutral-600"
   style="--x: 50%; --y: 50%;"
 >
-  <div class="flex flex-col space-y-3">
+  <a
+    href={`/projects/${slug}`}
+    class="absolute left-0 top-0 z-10 h-full w-full cursor-pointer"
+    aria-label={`Proyecto: ${title}, pulsar para mas detalles`}
+  >
+  </a>
+  <div class="flex flex-col space-y-5">
     <div class="flex w-full items-center justify-between">
       <div class="flex items-center space-x-2.5">
-        {image && <img src={image.src} alt={image.alt} class="h6 w-6" />}
+        {
+          image && (
+            <img
+              src={image.src}
+              alt={image.alt}
+              width={24}
+              height={24}
+              transition:name={`project-image-${slug}`}
+            />
+          )
+        }
         {
           publicLink ? (
             <Link
               link={publicLink}
               classes={{
                 linkClass:
-                  'group flex items-center gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline',
+                  'group flex items-center gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline z-20',
                 iconClass:
                   'h-3.25 w-3.25 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100',
               }}
               showArrow={true}
+              transition:name={`project-name-${slug}`}
             />
           ) : (
-            <p class="font-medium">{title}</p>
+            <p class="font-medium" transition:name={`project-name-${slug}`}>
+              {title}
+            </p>
           )
         }
       </div>
-      {
-        codeLink && (
-          <a href={codeLink} target="_blank" rel="noopener" aria-label="View source code on GitHub">
-            <GithubIcon class="h-4 w-6 fill-neutral-400 transition-colors duration-200 hover:fill-white" />
-          </a>
-        )
-      }
+      {isInProgress && <TagInProgress />}
     </div>
-    <p class="truncate text-sm text-neutral-400">{description}</p>
-    <div class="flex items-center space-x-1 overflow-x-auto">
-      {tags.map((tag: string) => <Tag tag={tag} />)}
-    </div>
+    <p class="truncate text-sm text-neutral-400">{shortDescription}</p>
   </div>
 </div>
 
@@ -55,8 +65,9 @@ const { title, description, publicLink, codeLink, tags, image } = Astro.props
 </style>
 
 <script type="module">
-  if (typeof window !== 'undefined') {
+  function initializeCards() {
     document.querySelectorAll('.interactive-card').forEach((card) => {
+      // Mousemove effect
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect()
         const x = e.clientX - rect.left
@@ -71,4 +82,7 @@ const { title, description, publicLink, codeLink, tags, image } = Astro.props
       })
     })
   }
+
+  initializeCards()
+  document.addEventListener('astro:page-load', initializeCards)
 </script>

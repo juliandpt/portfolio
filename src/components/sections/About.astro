@@ -3,7 +3,7 @@ import Link from '@/components/ui/Link.astro'
 import { socials } from '@/consts/socials'
 ---
 
-<section id="about" class="animate-in animate-delay-0 pt-30">
+<section id="about" class="animate-in animate-delay-0">
   <article
     class="prose dark:prose-invert prose-a:font-normal prose-a:decoration-neutral-500 prose-a:decoration-dotted prose-a:underline-offset-[5px] prose-a:opacity-80"
   >
@@ -21,10 +21,7 @@ import { socials } from '@/consts/socials'
         <Link
           link={social.link}
           techLogo={social.techLogo}
-          classes={{
-            logoClass:
-              `h-6 w-6 opacity-50 duration-200 fill-neutral-500 hover:scale-110 hover:opacity-100 mx-10 ${social.hover}`,
-          }}
+          classes={{ logoClass: 'h-6 w-6 opacity-50 fill-neutral-500 duration-200 grayscale hover:grayscale-0 hover:scale-110 hover:opacity-100 mx-10 hover:fill-transparent' }}
         />
         <span class="w-px h-2.5 rounded-full bg-neutral-500 last:hidden"></span>
       ))

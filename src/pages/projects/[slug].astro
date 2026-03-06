@@ -1,0 +1,98 @@
+---
+import GithubIcon from '@/components/ui/icons/GithubIcon.astro'
+import Link from '@/components/ui/Link.astro'
+import TagTechnology from '@/components/ui/TagTechnology.astro'
+import ArrowLeftIcon from '@/components/ui/icons/ArrowLeftIcon.astro'
+import Layout from '@/layouts/Layout.astro'
+import { PROJECTS } from '@/consts/projects'
+
+const { slug } = Astro.params
+
+const project = PROJECTS.find((p) => p.title.toLowerCase().replace(/\s+/g, '-') === slug)
+
+if (!project) return Astro.redirect('/')
+const { title, description, publicLink, codeLink, image, tags, features } = project || {}
+
+const projectId = title.toLowerCase().replace(/\s+/g, '-')
+---
+
+<Layout>
+  <a
+    href="/"
+    class="group mb-6 inline-flex items-center gap-2 text-neutral-400 transition-colors duration-200 hover:text-white"
+  >
+    <ArrowLeftIcon class="h-4.5 w-4.5 fill-current duration-200 group-hover:translate-x-[-1.5px]" />
+    Volver
+  </a>
+
+  <div class="space-y-6">
+    <div class="flex items-center gap-4">
+      {
+        image && (
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="h-16 w-16 rounded-md object-cover"
+            transition:name={`project-image-${projectId}`}
+          />
+        )
+      }
+      {
+        publicLink ? (
+          <Link
+            link={publicLink}
+            classes={{
+              linkClass:
+                'text-2xl group flex items-center gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline z-20',
+              iconClass:
+                'h-4 w-4 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100',
+            }}
+            showArrow={true}
+            transition:name={`project-name-${slug}`}
+          />
+        ) : (
+          <h1 class="text-2xl font-bold text-white" transition:name={`project-name-${projectId}`}>
+            {title}
+          </h1>
+        )
+      }
+    </div>
+
+    <p class="text-base text-neutral-300">{description}</p>
+
+    <div class="flex flex-wrap items-center gap-2">
+      {tags.map((tag: any) => <TagTechnology tag={tag} />)}
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-xl font-medium">Funcionalidades</h2>
+      <ul class="m-0 list-none space-y-1 p-0 text-neutral-300">
+        {
+          features.map((feature: any) => (
+            <li>
+              <div class="flex">
+                <span class="font-geist-mono mr-4 text-neutral-400">{'-'}</span>
+                <p class="text-white">{feature}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    {
+      codeLink && (
+        <a
+          href={codeLink}
+          target="_blank"
+          rel="noopener"
+          aria-label="Ver código fuente en GitHub"
+          class="inline-flex items-center gap-2 rounded-md bg-neutral-800 px-4 py-2 font-medium transition-colors duration-200 hover:bg-neutral-700"
+        >
+          <GithubIcon class="h-5 w-5 fill-current" />
+          Ver código
+        </a>
+      )
+    }
+  </div>
+</Layout>

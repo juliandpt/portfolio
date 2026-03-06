@@ -9,7 +9,7 @@ import ProjectCard from '@/components/ui/ProjectCard.astro'
 >
   <div class="w-full items-center">
     <h2 class="text-xl font-medium">Proyectos</h2>
-    <div class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2" id="cards">
+    <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2" id="cards">
       {PROJECTS.map((project) => <ProjectCard {...project} />)}
     </div>
   </div>

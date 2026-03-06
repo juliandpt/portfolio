@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css'
 import Header from '@/components/ui/Header.astro'
+import { ClientRouter } from 'astro:transitions'
 ---
 
 <!doctype html>
@@ -27,10 +28,11 @@ import Header from '@/components/ui/Header.astro'
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://juliandepablo.com/" />
     <meta name="robots" content="index, follow" />
+    <ClientRouter />
   </head>
   <body class="font-geist min-h-screen scroll-smooth bg-neutral-900 text-white antialiased">
     <Header />
-    <main class="container mx-auto max-w-4xl flex-col px-8">
+    <main class="pt-30 container mx-auto max-w-4xl flex-col px-8">
       <slot />
     </main>
   </body>
@@ -39,4 +41,17 @@ import Header from '@/components/ui/Header.astro'
 <script>
   import { inject } from '@vercel/analytics'
   inject()
+
+  // Ejecutar animaciones solo en la primera carga
+  if (!sessionStorage.getItem('portfolio_loaded')) {
+    sessionStorage.setItem('portfolio_loaded', 'true')
+  } else {
+    // Si ya se cargó antes, agregar clase para deshabilitar animaciones
+    document.documentElement.classList.add('has-loaded')
+  }
+
+  // También marcarlo como cargado cuando se navegue
+  document.addEventListener('astro:after-swap', () => {
+    document.documentElement.classList.add('has-loaded')
+  })
 </script>
