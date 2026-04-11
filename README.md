@@ -19,7 +19,6 @@
 ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
 ![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)
 ![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white&style=flat)
-![React Badge](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=flat)
 
 </div>
 
@@ -29,6 +28,4 @@
 - [**Typescript**](https://www.typescriptlang.org/) - JavaScript with syntax for types.
 - [**Tailwindcss**](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [**Vite**](https://vitejs.dev/) - Next Generation Frontend Tooling.
-- [**React**](https://react.dev/) - A JavaScript library for building user interfaces.
-- [**Resend**](https://resend.com/) - A platform for sending emails and SMS.
 - [**Prettier**](https://prettier.io/) + [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - An opinionated code formatter.
