@@ -6,6 +6,13 @@ import ArrowLeftIcon from '@/components/ui/icons/ArrowLeftIcon.astro'
 import Layout from '@/layouts/Layout.astro'
 import { PROJECTS } from '@/consts/projects'
 
+export function getStaticPaths() {
+  return PROJECTS.map((project) => ({
+    params: { slug: project.title.toLowerCase().replace(/\s+/g, '-') },
+    props: { project },
+  }))
+}
+
 const { slug } = Astro.params
 
 const project = PROJECTS.find((p) => p.title.toLowerCase().replace(/\s+/g, '-') === slug)

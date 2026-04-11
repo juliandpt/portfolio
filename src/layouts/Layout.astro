@@ -37,21 +37,3 @@ import { ClientRouter } from 'astro:transitions'
     </main>
   </body>
 </html>
-
-<script>
-  import { inject } from '@vercel/analytics'
-  inject()
-
-  // Ejecutar animaciones solo en la primera carga
-  if (!sessionStorage.getItem('portfolio_loaded')) {
-    sessionStorage.setItem('portfolio_loaded', 'true')
-  } else {
-    // Si ya se cargó antes, agregar clase para deshabilitar animaciones
-    document.documentElement.classList.add('has-loaded')
-  }
-
-  // También marcarlo como cargado cuando se navegue
-  document.addEventListener('astro:after-swap', () => {
-    document.documentElement.classList.add('has-loaded')
-  })
-</script>
