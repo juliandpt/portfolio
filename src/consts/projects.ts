@@ -158,6 +158,11 @@ export const PROJECTS: Project[] = [
       src: '/images/now-logo.webp',
       alt: 'Logo de now',
     },
+    publicLink: {
+      title: 'CaixaBank Now',
+      href: 'https://www.caixabank.es/particular/banca-digital/appcaixabanknow.html',
+      aria_label: 'Navegar a la página de CaixaBank Now',
+    },
     tags: [
       {
         name: 'React',
