@@ -15,7 +15,7 @@ import PythonIcon from '@/components/ui/icons/PythonIcon.astro'
 
 export const PROJECTS: Project[] = [
   {
-    title: 'infopueblo',
+    title: 'Infopueblo',
     shortDescription: 'Plataforma que promociona el ocio rural en España.',
     description:
       'Plataforma creada para la promoción del ocio rural en España, ofreciendo a los usuarios la posibilidad de descubrir y reservar actividades en entornos rurales. La misión de este proyecto es fomentar el turismo de los pueblos catalogados como la España vaciada, contribuyendo así a la revitalización de estas áreas y al apoyo de las comunidades locales.',
@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'webstats',
+    title: 'Webstats',
     shortDescription: 'Análisis de seguridad de endpoints en sitios web.',
     description:
       'Herramienta de análisis de seguridad de endpoints en sitios web, diseñada para ayudar a los desarrolladores y administradores de sitios web a identificar y abordar vulnerabilidades en sus aplicaciones. Ofrece una variedad de información que permite a los usuarios realizar análisis exhaustivos de seguridad, generar reportes detallados y monitorear sus sitios web para garantizar la protección contra amenazas y ataques.',
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'facilitea',
+    title: 'Facilitea',
     shortDescription: 'Plataforma de e-commerce de CaixaBank',
     description:
       'Plataforma de e-commerce desarrollada para CaixaBank, diseñada para ofrecer a los clientes una experiencia de compra en línea fácil y segura. La plataforma permite a los usuarios explorar un catálogo de productos, agregar artículos a su carrito de compras y realizar pagos de manera eficiente, todo respaldado por la seguridad y confiabilidad que caracteriza a CaixaBank.',
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
       alt: 'Logo de facilitea',
     },
     publicLink: {
-      title: 'facilitea',
+      title: 'Facilitea',
       href: 'https://www.facilitea.com/',
       aria_label: 'Navegar a la página de facilitea',
     },
@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'boda-maria-y-sergio',
+    title: 'Boda María y Sergio',
     shortDescription: 'Página de informacion de bodas.',
     description:
       'Landing page creada para la boda de María y Sergio, con el objetivo de proporcionar a los invitados toda la información necesaria sobre el evento, incluyendo detalles sobre la ceremonia, la recepción y datos relevantes al evento.',
@@ -131,7 +131,7 @@ export const PROJECTS: Project[] = [
       alt: 'Logo de boda-maria-y-sergio',
     },
     publicLink: {
-      title: 'boda-maria-y-sergio',
+      title: 'Boda María y Sergio',
       href: 'https://boda-maria-y-sergio.vercel.app/',
       aria_label: 'Navegar a la página de la boda de María y Sergio',
     },
@@ -148,7 +148,25 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'scaffoldio',
+    title: 'Caixabank Now',
+    shortDescription: 'App de banca digital de Caixabank',
+    description:
+      'Aplicación de banca digital desarrollada para CaixaBank, diseñada para ofrecer a los clientes una experiencia bancaria en línea fácil y segura. La aplicación permite a los usuarios gestionar sus cuentas, realizar transferencias, pagar facturas y acceder a una variedad de servicios financieros, todo respaldado por la seguridad y confiabilidad que caracteriza a CaixaBank.',
+    features: ['Migración de arquitectura', 'Servicio de desbloqueo de tarjetea mediante PIN.'],
+    isInProgress: true,
+    image: {
+      src: '/images/now-logo.webp',
+      alt: 'Logo de now',
+    },
+    tags: [
+      {
+        name: 'React',
+        logo: ReactIcon,
+      },
+    ],
+  },
+  {
+    title: 'Scaffoldio',
     shortDescription: 'Generador dinámico de scaffolds para proyectos de software',
     description:
       'Generador dinámico de scaffolds para la documentación de proyectos de software. Esta herramienta permite a los desarrolladores modificar en tiempo real la estructura de carpetas de su propio proyecto, facilitando la organización y gestión de archivos. Scaffoldio es especialmente útil para proyectos que requieren una estructura de carpetas flexible y adaptable a medida que evolucionan, proporcionando una solución eficiente para mantener la documentación actualizada y bien organizada.',
