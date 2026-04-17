@@ -1,0 +1,50 @@
+# ============================================
+# Robots.txt for juliandepablo.com
+# ============================================
+
+# Host preference
+Host: https://juliandepablo.com
+
+# ============================================
+# Default rules for all bots
+# ============================================
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Allow static assets
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+Allow: /public/
+
+# Disallow private or sensitive directories
+Disallow: /admin/
+Disallow: /.config/
+Disallow: /private/
+
+# Block dynamic URLs with parameters (but allow specific tracking)
+Disallow: /*?*
+Allow: /*?utm_source=
+
+# ============================================
+# Googlebot specific rules
+# ============================================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+
+# ============================================
+# Bingbot specific rules
+# ============================================
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# ============================================
+# Sitemap location
+# ============================================
+Sitemap: https://juliandepablo.com/sitemap.xml
