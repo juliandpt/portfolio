@@ -1,0 +1,124 @@
+# Portfolio de Julián de Pablo
+
+## Project Overview
+
+Personal portfolio website showcasing projects, experience, and skills as a software engineer.
+
+- **Website**: https://juliandepablo.com
+- **Repository**: https://github.com/juliandpt/portfolio
+
+## Technology Stack
+
+- **Framework**: Astro 6.1.5
+- **Language**: TypeScript 5.9.3
+- **Styling**: Tailwind CSS 4.2.2
+- **Build Tool**: Vite 7
+- **Adapter**: Cloudflare Pages (@astrojs/cloudflare)
+- **Code Quality**: ESLint 9.39.4, Prettier 3.8.2
+- **Deployment**: Wrangler 4.81.1
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── sections/
+│   │   ├── About.astro
+│   │   ├── Projects.astro
+│   │   └── Experiences.astro
+│   └── ui/
+│       ├── Header.astro
+│       ├── Footer.astro
+│       ├── ProjectCard.astro
+│       ├── Link.astro
+│       ├── ExperienceItem.astro
+│       ├── TagTechnology.astro
+│       ├── TagInProgress.astro
+│       └── icons/
+│           ├── AngularIcon.astro
+│           ├── AstroIcon.astro
+│           ├── BootstrapIcon.astro
+│           ├── ChakraIcon.astro
+│           ├── GitIcon.astro
+│           ├── GitlabIcon.astro
+│           ├── GmailIcon.astro
+│           ├── GithubIcon.astro
+│           ├── HtmlIcon.astro
+│           ├── JavaIcon.astro
+│           ├── JavascriptIcon.astro
+│           ├── LinkedinIcon.astro
+│           ├── MongodbIcon.astro
+│           ├── NodejsIcon.astro
+│           ├── NuxtIcon.astro
+│           ├── PostgresqlIcon.astro
+│           ├── PythonIcon.astro
+│           ├── ReactIcon.astro
+│           ├── ShadcnIcon.astro
+│           ├── TailwindIcon.astro
+│           └── VuetifyIcon.astro
+├── consts/
+│   ├── projects.ts
+│   ├── experiences.ts
+│   ├── socials.ts
+│   └── navItems.ts
+├── layouts/
+│   └── Layout.astro
+├── pages/
+│   ├── index.astro
+│   └── projects/
+│       └── [slug].astro
+├── styles/
+│   └── global.css
+└── types/
+    ├── project.d.ts
+    ├── experience.d.ts
+    ├── navItem.d.ts
+    ├── link.d.ts
+    ├── image.d.ts
+    └── technology.d.ts
+```
+
+## Projects (6)
+
+1. **Infopueblo** - Plataforma de promoción del ocio rural en España
+   - Tech: Angular, Bootstrap, Node.js, Python, PostgreSQL
+   - Features: Buscador de pueblos, Modelo de IA, Web Scrapping, Mapa interactivo, Login de usuarios
+
+2. **Webstats** - Herramienta de análisis de seguridad de endpoints
+   - Tech: Nuxt, Vuetify, Node.js, MongoDB
+   - Features: Análisis de vulnerabilidades, Reportes de seguridad, Monitoreo en tiempo real
+
+3. **Facilitea** - Plataforma de e-commerce de CaixaBank
+   - Tech: React, Chakra UI
+   - Features: Catálogo de productos, Carrito de compras, Integración con pasarelas de pago
+
+4. **Boda María y Sergio** - Landing page para boda
+   - Tech: Astro, Tailwind CSS
+   - Features: Enlaces informativos, Galería de fotos, Contador en tiempo real
+
+5. **Caixabank Now** - App de banca digital de CaixaBank (en progreso)
+   - Tech: React
+   - Features: Migración de arquitectura, Servicio de desbloqueo de tarjetas
+
+6. **Scaffoldio** - Generador dinámico de scaffolds (en progreso)
+   - Tech: React, Shadcn/ui
+   - Features: Entrada de estructura personalizada, Generación dinámica en tiempo real
+
+## Experience
+
+1. **Technical Consultant** @ SAS (2021-2025)
+   - Implementación de tecnologías SAS en entidades públicas y privadas
+   - Stack: Java, JavaScript, Angular
+
+2. **Software Engineer** @ CaixaBank Tech (2025-Actualidad)
+   - Desarrollo de soluciones fintech
+   - Stack: React, Spring (backend)
+
+## Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview build with Wrangler
+- `pnpm lint` - Run ESLint
+- `pnpm format` - Run Prettier
+- `pnpm deploy` - Deploy to Cloudflare

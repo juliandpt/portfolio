@@ -10,7 +10,7 @@ Host: https://juliandepablo.com
 # ============================================
 User-agent: *
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 # Allow static assets
 Allow: /assets/
@@ -43,6 +43,20 @@ Allow: /fonts/
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
+
+# ============================================
+# YandexBot specific rules
+# ============================================
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# ============================================
+# Baiduspider specific rules
+# ============================================
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
 
 # ============================================
 # Sitemap location
