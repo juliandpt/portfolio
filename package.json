@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "pnpm run build && wrangler dev",
     "lint": "eslint ./src",
-    "format": "prettier --write .",
+    "format": "prettier --write . --ignore-path .prettierignore",
     "generate-types": "wrangler types",
     "deploy": "pnpm run build && wrangler deploy"
   },

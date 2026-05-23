@@ -18,12 +18,17 @@ import { socials } from '@/consts/socials'
   <div class="mt-10 flex items-center justify-center">
     {
       socials.map((social) => (
-        <Link
-          link={social.link}
-          techLogo={social.techLogo}
-          classes={{ logoClass: 'h-6 w-6 opacity-50 fill-neutral-500 duration-200 grayscale hover:grayscale-0 hover:scale-110 hover:opacity-100 mx-10 hover:fill-transparent' }}
-        />
-        <span class="w-px h-2.5 rounded-full bg-neutral-500 last:hidden"></span>
+        <Fragment>
+          <Link
+            link={social.link}
+            techLogo={social.techLogo}
+            classes={{
+              logoClass:
+                'h-6 w-6 opacity-50 fill-neutral-500 duration-200 grayscale hover:grayscale-0 hover:scale-110 hover:opacity-100 mx-10 hover:fill-transparent',
+            }}
+          />
+          <span class="h-2.5 w-px rounded-full bg-neutral-500 last:hidden" />
+        </Fragment>
       ))
     }
   </div>
