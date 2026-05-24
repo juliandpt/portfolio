@@ -1,0 +1,59 @@
+name: Auto-update dependencies
+
+on:
+  schedule:
+    - cron: '30 17 * * 3'
+  workflow_dispatch:
+
+# TODO: Remove the `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` environment variable after June 2nd, 2024,
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: latest
+          cache: pnpm
+
+      - name: Approve builds
+        run: pnpm approve-builds workerd
+
+      - name: Update dependencies
+        run: pnpm update
+
+      - name: Run formatter
+        run: pnpm format
+
+      - name: Run linter
+        run: pnpm lint
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update dependencies'
+          title: 'chore: update dependencies'
+          body: |
+            Automated dependency update via `pnpm update`.
+
+            Changes include:
+            - Updated all dependencies to their latest compatible versions
+            - Applied formatting changes (if any)
+            - Build verified successfully
+
+            Please review the changes and verify everything works as expected.
+          branch: chore/update-dependencies
+          base: main
+          delete-branch: true
