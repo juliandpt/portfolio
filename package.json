@@ -19,14 +19,14 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.63.0",
+    "@typescript-eslint/parser": "^8.64.0",
     "autoskills": "^0.2.7",
-    "eslint": "^9.39.4",
+    "eslint": "^9.39.5",
     "eslint-plugin-astro": "^1.7.0",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "wrangler": "^4.107.0"
+    "wrangler": "^4.110.0"
   },
   "overrides": {
     "vite": "^7"
